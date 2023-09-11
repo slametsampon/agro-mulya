@@ -1,6 +1,6 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Agro Mulya Website',
+  title: 'Agro Mulya',
   author: 'Slamet-Sam',
   headerTitle: 'AgroMulya',
   description: 'Website Sayuran, Buah-buahan, Perikanan dan Peternakan',
