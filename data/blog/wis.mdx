@@ -1,0 +1,55 @@
+---
+title: WIS - Wireless Irrigation System
+date: '2023-09-12'
+tags: ['irigasi','hemat', 'IoT']
+draft: false
+summary: Irigasi otomatis tanpa kabel
+images: []
+---
+
+WIS dirancang dengan menggunakan WIFI sehingga bisa diakses via HP, Laptop yang mendukung browser. WIS bisa di-konfigurasi sebagai akses point (mandiri – tanpa WIFI dari luar) ataupun terhubung dengan WIFI yang ada, sehingga bisa diakses dari mana saja sepanjang jangkauan WIFI yang terhubung. Fungsi WIS dapat dibagi menjadi beberapa tugas berikut ini :
+
+##	Irrigation Control/IC.
+Pada pengendalian irigasi ini, WIS melakukan pengendalian secara mandiri dan tidak tergantung pada peralatan lain (smart phone, laptop). WIS melakukan pengendalian (control) berdasar pada nilai setting parameter meliputi :
+- Waktu mulai irigasi
+- Lama irigasi tiap group
+- Sequence/urutan tiap group
+
+### Secara detail fungsi IC adalah :
+
+- Melakukan pengendalian terhadap system irigasi dengan 4 group (masing-masing 4 guludan) menggunakan solenoid valve.
+- Solenoid valve terhubung ke WIS menggunakan kabel.
+- Sistem irigasi secara bergantian antara 4 group point a.
+- Lamanya waktu irigasi masing-masing grup sesuai dengan setting yang telah diberikan (dalam menit)
+- Setiap kegiatan (event) untuk masing-masing grup akan tercatat dalam system dan bisa dilihat dikemudian hari.
+- Lama penyimpanan data adalah 1 pekan (7 hari)
+- Mulainya irigasi juga dapat diatur setiap harinya (missal mulai jam 06:00) dan waktunya bisa dirubah.
+- Perubahan setiap parameter (lamanya tiap grup, waktu mulainya irigasi) dapat dilakukan dengan Smart phone, atau dengan laptop dengan WIFI.
+- Perubahan hanya bisa dilakukan oleh petugas yang berwenang (lengkap dengan password dan username).
+
+![Drip Irrigation](/static/images/wis/wis.jpg)
+
+## Monitoring suhu dan kelembaban (T, H)
+WIS bisa dilengkapi dengan sensor suhu (T – Temperature) dan kelembaban (H – Humidity) untuk mengukur T,H lingkungan dimana sensor itu terpasang. Pengukuran ini diambil secara sampling setiap 30 detik. Nilai ini selanjutnya digunakan untuk proses selanjutnya seperti dalam paparan berikut ini :
+
+- WIS juga dilengkapi dengan sensor temperature (suhu) dan humidity (kelembeban) untuk lingkungan sekitarnya.
+- Hasil pengukuran ditampilkan dalam bentuk dial-gauge dan update dalam setiap menit.
+- Hasil pengukuran (T, H) juga bisa dibuatkan trending selama 24 menit (24 data).
+- Pengukuran (T, H) juga dihitung rata-rata per-jaman dan disimpan setiap harinya selama 1 pekan (7 hari).
+- Nilai rata-rata pada point d. di atas, juga bisa dibuatkan reporting setiap hari.
+- Bentuk semua reporting dalam file pdf, sehingga bisa di-share via wa atau email secara terpisah.
+
+## Water Storage Control – WSC
+WIS juga bisa melakukan pengendalian cadangan air pada tangki penampungan (ST – Storage Tank) untuk irigasi. Pada pengendalian ini, WIS dilengkapi dengan sensor ketinggian permukaan air (LS - Level Switch). LS memberikan informasi yang dikirmkan ke WIS berupa signal level minimum dan penuh,  selanjutnya WIS memproses signal itu dengan pengendalian sbb:
+
+- Pompa sumur ke storage tank (ST) menyala jika storage tank menyentuh level isi (sensor level) dan akan berhenti jika storage tank penuh.
+- Pompa distribusi akan menyala selama masa irigasi, dan berhenti jika sudah selesai.
+- Pompa distribusi juga berhenti saat storage tank menyentuh level minimum.
+
+## Komponen WIS :
+- 4 Group (related to 4 solenoid valves, ½”, 12 VDC)
+- Each group will supply water (irrigation) for 4 beds (guludan)
+- Power Supply 220VAC to 12 VDC (10 A)
+- Module Relay 4 channel & 2 channel
+- WIFI Module – Arduino Wemos D1
+- Sensor Humidity, Temperature
