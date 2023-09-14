@@ -29,3 +29,6 @@ input:-webkit-autofill:focus {
     background-color 600000s 0s,
     color 600000s 0s;
 }
+.link-active {
+  @apply hover:rounded-full hover:bg-sky-700 hover:text-yellow-300;
+}
