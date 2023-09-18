@@ -1,9 +1,11 @@
 const kebunStatic = {
   blok: [
-    { id: 0, name: 'Select...', description: 'Select Level' },
+    { id: 0, name: 'Select...', description: 'Select Blok' },
     {
       id: 1,
-      name: 'Zone-1',
+      name: 'Blok-2',
+      idSayuran: 1,
+      tanggalTanam: '2023-09-18',
       description: 'Sayur Bayam',
       status: 'Auto',
       waktuNyala: 6,
@@ -13,7 +15,9 @@ const kebunStatic = {
     },
     {
       id: 2,
-      name: 'Zone-2',
+      name: 'Blok-2',
+      idSayuran: 2,
+      tanggalTanam: '2023-09-18',
       description: 'Sayur Brokoli',
       status: 'Auto',
       waktuNyala: 7,
@@ -23,13 +27,36 @@ const kebunStatic = {
     },
     {
       id: 3,
-      name: 'Zone-3',
+      name: 'Blok-3',
+      idSayuran: 5,
+      tanggalTanam: '2023-09-18',
       description: 'Sayur Sawi Hijau',
       status: 'Auto',
       waktuNyala: 5,
       lamaNyala: 30,
       mode: 'Periodik',
       periode: 'Hari',
+    },
+  ],
+  sayuran: [
+    { id: 0, name: 'Select...', description: 'Select Sayuran' },
+    {
+      id: 1,
+      name: 'Bayam',
+      description: 'Sayur Bayam',
+      lamaTanam: 40,
+    },
+    {
+      id: 2,
+      name: 'Brokoli',
+      description: 'Sayur Brokoli',
+      lamaTanam: 40,
+    },
+    {
+      id: 3,
+      name: 'Sawi Hijau',
+      description: 'Sayur Sawi Hijau',
+      lamaTanam: 40,
     },
   ],
 }
