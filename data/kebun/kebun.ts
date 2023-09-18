@@ -1,5 +1,5 @@
 const kebunStatic = {
-  irigasi: [
+  blok: [
     { id: 0, name: 'Select...', description: 'Select Level' },
     {
       id: 1,

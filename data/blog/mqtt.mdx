@@ -1,0 +1,216 @@
+---
+title: MQTT - Message Queuing Telemetry Transport
+date: '2023-09-18'
+tags: ['mqtt', 'kontrol', 'iot', 'protokol']
+draft: false
+summary: MQTT (Message Queuing Telemetry Transport) adalah protokol komunikasi ringan yang digunakan untuk mengirimkan data antar perangkat atau aplikasi dalam jaringan yang memiliki bandwidth terbatas atau kondisi koneksi yang tidak stabil.
+images: []
+---
+
+MQTT (Message Queuing Telemetry Transport) adalah protokol komunikasi ringan yang digunakan untuk mengirimkan data antar perangkat atau aplikasi dalam jaringan yang memiliki bandwidth terbatas atau kondisi koneksi yang tidak stabil. MQTT dikembangkan oleh IBM pada tahun 1999 dan telah menjadi salah satu protokol yang populer dalam Internet of Things (IoT) dan aplikasi M2M (Machine-to-Machine) karena efisiensinya dalam penggunaan sumber daya.
+
+![MQTT](/static/images/kontrol/mqtt.png)
+
+## Karakteristik utama dari MQTT:
+
+1. Publish-Subscribe Model: MQTT menggunakan model komunikasi publish-subscribe di mana perangkat atau aplikasi dapat berperan sebagai penerbit (publisher) yang mengirimkan pesan atau pelanggan (subscriber) yang menerima pesan. Ini memungkinkan komunikasi antar perangkat yang terhubung dalam jaringan.
+
+2. Topik (Topic): Pesan dalam MQTT dikirimkan ke topik tertentu. Pelanggan dapat berlangganan ke topik-topik tertentu untuk menerima pesan yang relevan dengan topik tersebut.
+
+3. QoS (Quality of Service): MQTT mendukung tiga tingkat QoS yang berbeda untuk mengontrol seberapa andal pengiriman pesan:
+
+   - QoS 0 (At most once): Pesan dikirimkan sekali tanpa konfirmasi atau penyimpanan pesan.
+   - QoS 1 (At least once): Pesan dikirimkan dengan konfirmasi pengiriman sekurangnya satu kali.
+   - QoS 2 (Exactly once): Pesan dikirimkan dengan konfirmasi pengiriman pasti satu kali.
+
+4. Retained Messages: MQTT mendukung pesan yang dikenal sebagai "retained messages" yang disimpan oleh broker dan dikirimkan ke pelanggan baru yang berlangganan ke topik yang sesuai.
+
+5. Last Will and Testament (LWT): MQTT memungkinkan pengaturan pesan "last will" yang akan dikirimkan oleh broker kepada pelanggan jika pelanggan tersebut terputus secara tiba-tiba.
+
+6. Ringan dan Efisien: MQTT dirancang untuk memiliki overhead komunikasi yang rendah dan membutuhkan sedikit sumber daya, sehingga cocok untuk perangkat dengan keterbatasan sumber daya seperti sensor IoT.
+
+7. Broker-Based: MQTT menggunakan broker sebagai perantara untuk mengatur distribusi pesan antara penerbit dan pelanggan. Broker bertanggung jawab untuk mengarahkan pesan ke pelanggan yang berlangganan topik yang relevan.
+
+Dengan karakteristik-karakteristik ini, MQTT telah menjadi salah satu protokol komunikasi yang populer untuk implementasi IoT dan aplikasi M2M, terutama ketika diperlukan komunikasi yang andal, efisien, dan skalabel di lingkungan yang memiliki banyak perangkat yang terhubung.
+
+![MQTT-Topic](/static/images/kontrol/mqtt-topic1.jpg)
+
+## Apa itu topic dalam MQTT
+
+Dalam protokol MQTT (Message Queuing Telemetry Transport), "topic" (topik) adalah mekanisme penting yang digunakan untuk mengorganisasi dan mengarahkan aliran pesan antara penerbit (publisher) dan pelanggan (subscriber). Topik digunakan untuk menentukan konteks atau subjek dari sebuah pesan yang akan dikirimkan atau diterima melalui broker MQTT. Berikut beberapa poin penting tentang topik dalam MQTT:
+
+1. **Identifikasi Pesan**: Topik digunakan untuk mengidentifikasi pesan dan memberikan informasi tentang isi pesan. Misalnya, jika Anda menggunakan MQTT untuk mengirim data suhu dari sensor, Anda dapat menggunakan topik seperti "suhu/ruang1" untuk mengidentifikasi pesan yang berisi data suhu dari ruangan tertentu.
+
+2. **Hierarchy**: Topik dalam MQTT dapat membentuk hierarki yang terstruktur. Topik dapat memiliki struktur seperti "ruang/lokasi/sensor" untuk menggambarkan lokasi fisik atau jenis data yang dikirimkan. Ini memungkinkan Anda untuk mengorganisasi pesan dengan lebih baik.
+
+3. **Wildcard Subscriptions**: MQTT mendukung dua jenis wildcard untuk berlangganan pesan, yaitu wildcard "#" (hash) dan "+" (plus). "#" digunakan untuk berlangganan ke semua subtopik di bawah topik yang sama, sedangkan "+" digunakan untuk berlangganan ke satu level subtopik tertentu. Misalnya, jika Anda berlangganan ke "suhu/#", Anda akan menerima semua pesan di bawah topik "suhu," sedangkan jika Anda berlangganan ke "suhu/+/sensor1," Anda akan menerima pesan hanya dari sensor tertentu di bawah topik "suhu."
+
+4. **Publishing ke Topik**: Ketika seorang penerbit ingin mengirimkan pesan, ia harus menentukan topik yang sesuai dengan pesan tersebut. Pesan akan dikirimkan ke broker MQTT dengan topik yang ditentukan, dan pelanggan yang berlangganan ke topik yang sama akan menerima pesan tersebut.
+
+5. **Topik Bersifat Case-Sensitive**: Dalam MQTT, topik bersifat case-sensitive, artinya "suhu" dan "Suhu" dianggap sebagai topik yang berbeda. Pastikan untuk menggunakan konsistensi dalam penamaan topik untuk menghindari kebingungan.
+
+6. **Retained Messages**: Topik juga berperan dalam "retained messages." Jika pesan yang dikirim memiliki opsi retained yang diaktifkan, maka pesan tersebut akan disimpan oleh broker dengan topik yang sesuai, dan pesan ini akan dikirimkan ke pelanggan yang berlangganan ke topik tersebut saat mereka terhubung ke broker.
+
+Dengan menggunakan topik, MQTT memungkinkan Anda untuk mengorganisasi, mengarahkan, dan mengelompokkan pesan dengan cara yang terstruktur, memungkinkan komunikasi yang efisien dan efektif antara perangkat dan aplikasi dalam jaringan MQTT.
+
+![MQTT-Topic](/static/images/kontrol/mqtt-topic.png)
+
+## Identifikasi topic dalam MQTT
+
+Dalam protokol MQTT (Message Queuing Telemetry Transport), identifikasi yang paling umum adalah penggunaan topik (topic) untuk pesan dan pengenal klien untuk klien MQTT yang terhubung. Di bawah ini, saya akan menjelaskan cara memberikan identifikasi menggunakan topik dan pengenal klien dalam MQTT:
+
+1. **Identifikasi dengan Topik (Topic)**:
+
+   - **Pengirim (Publisher)**: Ketika Anda ingin mengirim pesan menggunakan MQTT, Anda perlu menentukan topik untuk pesan tersebut. Topik ini digunakan untuk mengidentifikasi pesan dan memberikan konteks tentang apa yang akan dikomunikasikan. Contohnya, jika Anda ingin mengirim data suhu dari sebuah sensor, Anda dapat menentukan topik seperti "suhu/ruang1" untuk pesan tersebut.
+   - **Penerima (Subscriber)**: Untuk menerima pesan, pelanggan (subscriber) juga harus menentukan topik yang ingin mereka langgani. Mereka akan menerima pesan yang sesuai dengan topik yang mereka berlangganan. Misalnya, jika pelanggan berlangganan ke topik "suhu/#", mereka akan menerima semua pesan yang memiliki topik yang dimulai dengan "suhu/."
+
+2. **Identifikasi dengan Pengenal Klien (Client Identifier)**:
+   - **Klien MQTT** yang terhubung ke broker MQTT harus memberikan pengenal klien (client identifier) yang unik. Pengenal klien ini digunakan oleh broker untuk mengidentifikasi klien yang berbeda. Setiap klien yang terhubung ke broker harus memiliki pengenal klien yang berbeda.
+   - Pengenal klien biasanya diberikan oleh perangkat atau aplikasi yang terhubung ke broker MQTT. Ini adalah cara bagi broker untuk melacak klien dan mengirim pesan kepada klien yang tepat.
+   - Pengenal klien tidak terlihat oleh penerbit atau pelanggan lain dalam jaringan MQTT. Ini adalah pengenal internal yang digunakan oleh broker untuk manajemen koneksi.
+
+Dengan menggunakan topik dan pengenal klien, MQTT memungkinkan identifikasi yang fleksibel dan kontekstual untuk pesan dan klien yang terhubung. Topik digunakan untuk mengidentifikasi pesan dan memberikan konteks, sedangkan pengenal klien digunakan untuk mengidentifikasi klien MQTT yang berbeda dalam jaringan. Kombinasi dari keduanya memungkinkan sistem MQTT untuk mengelola dan mengarahkan pesan dengan efisien antara berbagai perangkat dan aplikasi yang terhubung.
+
+![MQTT-Topic](/static/images/kontrol/mqtt-topic2.png)
+
+## Mekanisme pengiriman pesan dalam MQTT
+
+Protokol MQTT (Message Queuing Telemetry Transport) memiliki mekanisme pengiriman pesan yang terstruktur dan andal. Berikut adalah langkah-langkah umum dalam mekanisme pengiriman pesan dengan MQTT:
+
+1. **Penerbit (Publisher) Mengirim Pesan**:
+
+   - Langkah pertama adalah penerbit (publisher) yang ingin mengirimkan pesan. Penerbit menentukan pesan yang ingin dikirimkan dan topik (topic) yang sesuai dengan pesan tersebut.
+
+2. **Penerbit Terhubung ke Broker MQTT**:
+
+   - Penerbit harus terhubung ke broker MQTT sebelum dapat mengirimkan pesan. Ini melibatkan proses autentikasi dan koneksi ke broker MQTT yang berjalan di server atau host yang ditentukan.
+
+3. **Penerbit Menerbitkan Pesan ke Broker**:
+
+   - Setelah terhubung ke broker, penerbit menerbitkan pesan ke broker dengan menentukan topik yang sesuai dengan pesan tersebut. Penerbit juga dapat menentukan tingkat Quality of Service (QoS) yang sesuai dengan kebutuhan.
+
+4. **Broker Menyimpan Pesan**:
+
+   - Setelah menerima pesan dari penerbit, broker MQTT menyimpan pesan tersebut dan memutuskan bagaimana pesan akan diteruskan ke pelanggan (subscriber) yang berlangganan topik yang sama.
+
+5. **Pelanggan Berlangganan ke Topik**:
+
+   - Pelanggan MQTT yang ingin menerima pesan tertentu harus berlangganan ke topik yang sesuai dengan pesan tersebut. Pelanggan dapat berlangganan ke topik dengan berbagai tingkat QoS.
+
+6. **Broker Mengirim Pesan ke Pelanggan**:
+
+   - Setiap kali ada pesan yang sesuai dengan topik yang telah di langganan oleh pelanggan, broker akan mengirimkan pesan tersebut ke pelanggan tersebut. Tingkat QoS yang digunakan akan memengaruhi seberapa andal pengiriman pesan ini.
+
+7. **Konfirmasi Pengiriman (Opsional)**:
+
+   - Bergantung pada tingkat QoS yang digunakan, ada tahap konfirmasi pengiriman yang mungkin terjadi.
+     - QoS 0 (At most once): Pesan dikirim sekali tanpa konfirmasi. Pengiriman pesan tidak dijamin.
+     - QoS 1 (At least once): Broker akan mengirim pesan sekurangnya satu kali, dan penerima akan mengirimkan konfirmasi penerimaan. Penerbit dapat mengirim ulang pesan jika tidak menerima konfirmasi.
+     - QoS 2 (Exactly once): Pesan akan dikirimkan dengan konfirmasi pengiriman pasti sekali. Ini adalah tingkat QoS yang paling andal, tetapi juga memerlukan overhead tambahan.
+
+8. **Pelanggan Menerima Pesan**:
+
+   - Pelanggan akan menerima pesan yang telah dikirim oleh broker dan dapat mengolah atau menanggapi pesan tersebut sesuai kebutuhan.
+
+9. **Pelanggan Terputus (Opsional)**:
+
+   - Pelanggan dapat terputus dari broker setelah selesai menerima pesan atau sesuai dengan kebutuhan.
+
+10. **Pemeliharaan Koneksi (Opsional)**:
+    - Broker dan klien MQTT dapat melakukan pemeliharaan koneksi agar tetap aktif atau mengatasi kehilangan koneksi jika diperlukan.
+
+Mekanisme pengiriman pesan MQTT sangat fleksibel dan dapat disesuaikan dengan kebutuhan aplikasi Anda. Anda dapat mengatur tingkat QoS yang sesuai, mengelola pelanggan dan penerbit, serta mengatur broker MQTT untuk mengelola pesan dalam jaringan MQTT Anda.
+
+![MQTT-Broker](/static/images/kontrol/mqtt-broker.jpg)
+
+## Broker dalam MQTT
+
+Dalam protokol MQTT (Message Queuing Telemetry Transport), "broker" adalah komponen inti atau server yang bertindak sebagai perantara (middleware) dalam sistem komunikasi MQTT. Broker MQTT adalah entitas yang mengatur dan mengelola aliran pesan antara penerbit (publisher) dan pelanggan (subscriber) dalam jaringan MQTT. Fungsi utama broker MQTT adalah mengumpulkan pesan dari penerbit dan meneruskannya kepada pelanggan yang berlangganan topik yang sesuai.
+
+Berikut adalah beberapa karakteristik utama dari broker MQTT:
+
+1. **Menerima Pesan**: Broker MQTT menerima pesan yang dikirim oleh penerbit. Pesan ini dapat berisi data sensor, perintah untuk perangkat, atau informasi lain yang perlu dikomunikasikan dalam jaringan MQTT.
+
+2. **Mengatur Pesan**: Broker menyimpan pesan yang diterimanya dan mengatur cara pengiriman pesan ke pelanggan yang berlangganan topik yang sesuai. Ini mencakup penentuan pelanggan mana yang harus menerima pesan dan tingkat Quality of Service (QoS) yang digunakan.
+
+3. **Distribusi Pesan**: Berdasarkan topik pesan dan langganan pelanggan, broker mendistribusikan pesan kepada pelanggan yang berlangganan. Ini termasuk penggunaan wildcard dalam topik yang memungkinkan pelanggan berlangganan ke berbagai subtopik.
+
+4. **Manajemen Koneksi**: Broker mengelola koneksi dari berbagai klien MQTT (penerbit dan pelanggan). Ini termasuk autentikasi klien, pemeliharaan koneksi, dan penanganan klien yang baru terhubung atau terputus.
+
+5. **Retained Messages**: Broker dapat menyimpan pesan yang memiliki opsi retained, yang berarti pesan tersebut akan disimpan oleh broker dan dikirimkan kepada pelanggan yang baru berlangganan ke topik yang sesuai.
+
+6. **Penerbitan Pesan Konfirmasi**: Jika diperlukan, broker MQTT dapat memberikan konfirmasi (acknowledgment) kepada penerbit pesan, terutama pada tingkat QoS yang lebih tinggi, seperti QoS 1 dan QoS 2. Ini memastikan pesan berhasil disampaikan.
+
+7. **Security**: Broker juga dapat mengimplementasikan langkah-langkah keamanan, seperti autentikasi, otorisasi, dan enkripsi, untuk melindungi komunikasi dalam jaringan MQTT.
+
+Beberapa broker MQTT yang populer termasuk Mosquitto, Eclipse Mosquitto, HiveMQ, dan banyak lagi. Pilihan broker akan tergantung pada kebutuhan proyek Anda, seperti tingkat keandalan, skala, dan fitur keamanan yang diperlukan. Dengan adanya broker MQTT, perangkat dan aplikasi dalam jaringan MQTT dapat berkomunikasi secara efisien dan terstruktur.
+
+![MQTT-Broker](/static/images/kontrol/mqtt-broker1.jpg)
+
+## Client dalam MQTT
+
+Dalam protokol MQTT (Message Queuing Telemetry Transport), "klien" (client) merujuk kepada perangkat atau aplikasi yang terhubung ke broker MQTT untuk berpartisipasi dalam pertukaran pesan dalam jaringan MQTT. Klien dapat berperan sebagai penerbit (publisher), pelanggan (subscriber), atau bahkan keduanya, tergantung pada peran yang diambilnya dalam komunikasi MQTT.
+
+Berikut adalah peran utama yang dapat dimainkan oleh klien dalam MQTT:
+
+1. **Penerbit (Publisher)**:
+
+   - Sebagai penerbit, klien menghasilkan dan mengirimkan pesan ke broker MQTT. Penerbit menentukan topik (topic) yang sesuai dengan pesan tersebut.
+   - Penerbit berinteraksi dengan broker untuk mengirim pesan ke topik tertentu. Pesan yang dikirim oleh penerbit akan tersedia untuk pelanggan yang berlangganan topik yang sama.
+
+2. **Pelanggan (Subscriber)**:
+
+   - Sebagai pelanggan, klien berlangganan ke topik-topik yang menarik bagi mereka. Ketika pelanggan berlangganan ke suatu topik, mereka akan menerima pesan yang dikirim ke topik tersebut oleh penerbit lain.
+   - Pelanggan dapat berlangganan ke topik tunggal atau menggunakan wildcard seperti "#" atau "+" untuk berlangganan ke berbagai topik yang sesuai dengan pola tertentu.
+
+3. **Pengenal Klien (Client Identifier)**:
+
+   - Setiap klien MQTT harus memiliki pengenal klien (client identifier) yang unik ketika mereka terhubung ke broker. Pengenal klien ini digunakan oleh broker untuk mengidentifikasi dan membedakan antara klien yang berbeda yang terhubung.
+   - Pengenal klien biasanya disediakan oleh perangkat atau aplikasi yang terhubung ke broker MQTT. Ini adalah cara broker mengenali dan melacak klien-klien dalam jaringan MQTT.
+
+4. **Tingkat Quality of Service (QoS)**:
+   - Klien juga menentukan tingkat Quality of Service (QoS) yang akan digunakan saat berkomunikasi dengan broker MQTT. QoS mengatur seberapa andal pengiriman pesan dan proses konfirmasi yang diperlukan.
+
+Klien MQTT dapat berupa perangkat fisik seperti sensor IoT, perangkat mikrokontroler (seperti ESP32), atau aplikasi perangkat lunak yang terhubung ke broker MQTT. Mereka berperan penting dalam menjalankan komunikasi dalam jaringan MQTT, memungkinkan perangkat dan aplikasi untuk saling berkomunikasi dan berbagi informasi secara efisien. Setiap klien harus mematuhi protokol MQTT dan bekerja sama dengan broker untuk mengatur pengiriman pesan dan penerimaan pesan sesuai dengan topik dan tingkat QoS yang sesuai.
+
+![MQTT-Publisher](/static/images/kontrol/mqtt-publisher.png)
+
+## Publisher dalam MQTT
+
+Dalam protokol MQTT (Message Queuing Telemetry Transport), "publisher" adalah klien MQTT yang berperan sebagai pengirim pesan. Publisher menghasilkan dan mengirimkan pesan ke broker MQTT, yang kemudian akan mendistribusikannya ke pelanggan (subscribers) yang berlangganan topik yang sesuai.
+
+Berikut adalah beberapa informasi lebih lanjut tentang publisher dalam MQTT:
+
+1. **Pengiriman Pesan**: Publisher bertanggung jawab untuk menghasilkan pesan dan mengirimkannya ke broker MQTT. Pesan tersebut dapat berisi data, perintah, atau informasi lain yang perlu disebarkan kepada pelanggan atau aplikasi lain yang berlangganan topik yang sesuai.
+
+2. **Topik (Topic)**: Saat seorang publisher mengirim pesan, ia harus menentukan topik yang sesuai dengan pesan tersebut. Topik adalah cara utama untuk mengidentifikasi konteks atau subjek dari pesan. Misalnya, jika publisher ingin mengirim data suhu dari sensor, ia dapat menggunakan topik seperti "suhu/ruang1" untuk mengidentifikasi pesan tersebut.
+
+3. **Quality of Service (QoS)**: Publisher dapat menentukan tingkat Quality of Service (QoS) yang akan digunakan saat mengirim pesan. QoS mengatur seberapa andal pengiriman pesan dan proses konfirmasi yang diperlukan. Terdapat tiga tingkat QoS yang berbeda dalam MQTT: QoS 0 (At most once), QoS 1 (At least once), dan QoS 2 (Exactly once).
+
+4. **Identifikasi Klien**: Publisher harus terhubung ke broker MQTT dan memiliki pengenal klien (client identifier) yang unik. Pengenal klien ini digunakan oleh broker untuk mengidentifikasi dan membedakan publisher dari klien lain yang terhubung.
+
+5. **Broker Intermediary**: Setelah menerima pesan dari publisher, broker MQTT bertanggung jawab untuk menyimpan pesan tersebut dan mendistribusikannya ke pelanggan yang berlangganan topik yang sesuai. Broker juga dapat mengirimkan konfirmasi pengiriman (acknowledgment) kepada publisher, terutama jika publisher menggunakan tingkat QoS yang lebih tinggi.
+
+6. **Penerbitan Pesan**: Proses pengiriman pesan dari publisher ke broker disebut "penerbitan" (publishing). Ini adalah langkah penting dalam komunikasi MQTT, yang memungkinkan berbagai perangkat dan aplikasi untuk berbagi informasi dalam jaringan MQTT.
+
+Publisher sering digunakan dalam skenario IoT (Internet of Things) di mana perangkat seperti sensor menghasilkan data yang perlu disebarkan atau dikirimkan ke perangkat atau aplikasi lain dalam jaringan. Dengan menggunakan publisher, perangkat dapat berkomunikasi dengan broker MQTT dan menyebarkan informasi kepada pelanggan atau pihak yang berkepentingan lainnya secara efisien.
+
+![MQTT-Aplikasi](/static/images/kontrol/mqtt-aplikasi.jpg)
+
+## Aplikasi
+
+MQTT (Message Queuing Telemetry Transport) adalah protokol yang sangat berguna dalam menghubungkan ESP32 (sistem mikrokontroler) ke jaringan dan perangkat lain, terutama dalam konteks Internet of Things (IoT). Dengan menggunakan MQTT pada ESP32, Anda dapat mengirim dan menerima data antara ESP32 dan broker MQTT, yang kemudian dapat digunakan untuk mengintegrasikan ESP32 dengan aplikasi lain atau perangkat IoT lainnya. Berikut adalah beberapa aplikasi umum MQTT dalam ESP32:
+
+1. **Monitoring Sensor**: ESP32 sering digunakan untuk mengambil data dari berbagai jenis sensor seperti suhu, kelembaban, tekanan, atau sensor lainnya. Data dari sensor tersebut dapat dikirim melalui MQTT ke broker, dan aplikasi lain dapat berlangganan ke data tersebut untuk pemantauan atau pengambilan keputusan.
+
+2. **Kontrol Perangkat**: Anda dapat menggunakan MQTT untuk mengontrol perangkat fisik yang terhubung ke ESP32, seperti lampu, motor, atau perangkat lainnya. Dengan menerbitkan pesan MQTT, Anda dapat mengirim perintah kepada ESP32 untuk mengendalikan perangkat tersebut.
+
+3. **Integrasi dengan Cloud**: Anda dapat menghubungkan ESP32 dengan layanan cloud seperti AWS IoT, Google Cloud IoT Core, atau Azure IoT Hub menggunakan MQTT. Ini memungkinkan Anda untuk menyimpan, menganalisis, atau memproses data dari ESP32 secara lebih terpusat di cloud.
+
+4. **Over-the-Air (OTA) Updates**: MQTT dapat digunakan untuk mengirimkan pembaruan perangkat lunak (firmware) ke ESP32 secara nirkabel. Anda dapat mengatur ESP32 untuk berlangganan ke topik pembaruan dan menerima pembaruan firmware saat tersedia.
+
+5. **Sistem Keamanan**: Anda dapat menggunakan MQTT untuk mengirimkan peringatan atau notifikasi ke perangkat ESP32 ketika terjadi kejadian yang perlu diawasi seperti intrusi, kebakaran, atau pengrusakan.
+
+6. **Remote Monitoring dan Kontrol**: MQTT memungkinkan Anda untuk memantau dan mengendalikan ESP32 dari jarak jauh melalui broker MQTT. Ini berguna dalam skenario di mana Anda perlu mengakses perangkat ESP32 yang terletak di lokasi yang berjauhan.
+
+Penting untuk dicatat bahwa untuk mengimplementasikan MQTT pada ESP32, Anda perlu menggunakan pustaka (library) MQTT yang sesuai, seperti PubSubClient atau Arduino MQTT Library, tergantung pada lingkungan pengembangan yang Anda gunakan. Anda juga perlu mengatur broker MQTT yang akan digunakan oleh ESP32 dan memastikan bahwa perangkat Anda memiliki koneksi internet yang stabil untuk berkomunikasi dengan broker tersebut.
