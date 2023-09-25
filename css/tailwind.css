@@ -32,3 +32,6 @@ input:-webkit-autofill:focus {
 .link-active {
   @apply hover:rounded-full hover:bg-sky-700 hover:text-yellow-300;
 }
+.wo-table {
+  @apply gap-6 rounded-2xl bg-slate-100 leading-5 text-gray-900 shadow-md dark:bg-gray-900 dark:text-gray-100;
+}

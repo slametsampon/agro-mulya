@@ -4,11 +4,12 @@ import getDisplayBlokSayur from 'utils/kebun/getDisplayBlokSayur'
 
 export const metadata = genPageMetadata({ title: 'Kebun' })
 
-export default function Page() {
+export default async function Page() {
+  const blokDisplay = await getDisplayBlokSayur()
+  console.log('blokDisplay : ', blokDisplay)
   return (
     <>
-      <h1>Laman Kebun</h1>
-      <h3>Under Construction</h3>
+      <ListBlokSayuran />
     </>
   )
 }
