@@ -8,7 +8,7 @@ export default async function getDisplayBlokSayur() {
     const displaySayuran = blokSayuran.map((blok) => {
       const fetchPromise = getStaticSayur(blok.idSayuran)
       fetchPromise.then((data) => {
-        console.log(data[0])
+        console.log(data)
       })
     })
     console.log('displaySayuran : ', displaySayuran)
