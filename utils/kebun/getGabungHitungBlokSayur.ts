@@ -12,7 +12,7 @@ export default function getGabungHitungBlokSayur(blok, sayur) {
   const estPanen = calcDate.setDate(calcDate.getDate() + blok.sayuran.umur)
   blok.estPanen = formatDate(estPanen)
   const toDay = new Date()
-  const progress = Math.round(
+  const progress: number = Math.round(
     ((toDay - tglTanam) * 100) / (blok.sayuran.umur * 1000 * 60 * 60 * 24)
   )
   blok.progres = progress
