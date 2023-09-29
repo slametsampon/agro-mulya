@@ -8,11 +8,11 @@ export default function getGabungHitungBlokSayur(blok, sayur) {
 
   //hitung progress
   const calcDate = new Date(blok.tanggalTanam)
-  const tglTanam: Date = new Date(blok.tanggalTanam)
+  const tglTanam: number = Date.parse(new Date(blok.tanggalTanam))
   const estPanen = calcDate.setDate(calcDate.getDate() + blok.sayuran.umur)
   blok.estPanen = formatDate(estPanen)
-  const toDay: Date = new Date()
-  const progress: number = Math.round(
+  const toDay: number = Date.parse(new Date())
+  const progress = Math.round(
     ((toDay - tglTanam) * 100) / (blok.sayuran.umur * 1000 * 60 * 60 * 24)
   )
   blok.progres = progress
