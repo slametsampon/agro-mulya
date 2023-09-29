@@ -3,8 +3,6 @@ import getGabungHitungBlokSayur from './getGabungHitungBlokSayur'
 
 export default async function getBlokSayurLengkap(id: number) {
   try {
-    // const resultBlok = kebunStatic.blokSayuran.find((blk) => blk.id === id)
-    // const resultSayur = kebunStatic.sayuran.find((sayur) => sayur.id === resultBlok?.id)
     let resultBlokIndex = kebunStatic.blokSayuran.findIndex((blk) => blk.id === id)
     if (resultBlokIndex < 0) {
       resultBlokIndex = 0
