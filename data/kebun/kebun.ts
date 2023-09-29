@@ -129,7 +129,7 @@ const kebunStatic = {
     },
   ],
   sayuran: [
-    { id: 0, name: 'Select...', description: 'Select Sayuran' },
+    { id: 0, name: 'Select...', description: 'Select Sayuran', umur: 0, jarakTanam: 0, berat: 0 },
     {
       id: 1,
       name: 'Bayam',

@@ -1,6 +1,7 @@
 import kebunStatic from '@/data/kebun/kebun'
 import getStaticSayur from './getStaticSayur'
 import getGabungHitungBlokSayur from './getGabungHitungBlokSayur'
+import { BlokLengkap } from 'utils/definition'
 
 export default async function getCompleteBlokSayur() {
   try {
@@ -17,8 +18,8 @@ export default async function getCompleteBlokSayur() {
     }
     //gabung dan hitung
     const kompleteBlokSayuran = blokSayuran.map((blk, index) => {
-      blk = getGabungHitungBlokSayur(blk, displaySay[index])
-      return blk
+      const blokLengkap: BlokLengkap = getGabungHitungBlokSayur(blk, displaySay[index])
+      return blokLengkap
     })
     return kompleteBlokSayuran
   } catch (error) {
