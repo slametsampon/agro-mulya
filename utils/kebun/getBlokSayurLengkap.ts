@@ -3,8 +3,20 @@ import getGabungHitungBlokSayur from './getGabungHitungBlokSayur'
 
 export default async function getBlokSayurLengkap(id: number) {
   try {
-    const resultBlok = kebunStatic.blokSayuran.find((blk) => blk.id === id)
-    const resultSayur = kebunStatic.sayuran.find((sayur) => sayur.id === resultBlok?.id)
+    // const resultBlok = kebunStatic.blokSayuran.find((blk) => blk.id === id)
+    // const resultSayur = kebunStatic.sayuran.find((sayur) => sayur.id === resultBlok?.id)
+    let resultBlokIndex = kebunStatic.blokSayuran.findIndex((blk) => blk.id === id)
+    if (resultBlokIndex < 0) {
+      resultBlokIndex = 0
+    }
+    const resultBlok = kebunStatic.blokSayuran[resultBlokIndex]
+
+    let resultSayurIndex = kebunStatic.sayuran.findIndex((sayur) => sayur.id === resultBlok?.id)
+    if (resultSayurIndex < 0) {
+      resultSayurIndex = 0
+    }
+    const resultSayur = kebunStatic.sayuran[resultSayurIndex]
+    //gabung dan hitung
     const blokLengkap = getGabungHitungBlokSayur(resultBlok, resultSayur)
     if (!resultBlok) {
       return { name: 'no name', description: 'no name' }

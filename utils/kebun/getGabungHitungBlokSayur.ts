@@ -1,7 +1,7 @@
 import { BlokLengkap, BlokSingkat, Sayuran } from 'utils/definition'
 import formatDate from 'utils/formatDate'
 
-export default function getGabungHitungBlokSayur(blok, sayur): BlokLengkap {
+export default function getGabungHitungBlokSayur(blok: BlokSingkat, sayur: Sayuran): BlokLengkap {
   const blokLengkap: BlokLengkap = blok
   blokLengkap.sayuran = sayur
 
