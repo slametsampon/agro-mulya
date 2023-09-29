@@ -3,10 +3,8 @@ import getBlokSayurLengkap from 'utils/kebun/getBlokSayurLengkap'
 
 export const metadata = genPageMetadata({ title: 'Blok-Detail' })
 export default async function Page({ params }: { params: { id: number } }) {
-  const blokLengkap = await getBlokSayurLengkap(parseInt(params.id))
-  // const blokLengkap = getBlokSayurLengkap(params.id).then((lengkap) => {
-  //   return lengkap
-  // })
+  const idNumber = parseInt(params.id)
+  const blokLengkap = await getBlokSayurLengkap(idNumber)
   console.log('blokLengkap : ', blokLengkap)
   return (
     <>
