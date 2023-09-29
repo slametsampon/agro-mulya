@@ -1,6 +1,18 @@
 const kebunStatic = {
   blokSayuran: [
-    { id: 0, name: 'Select...', description: 'Select Blok' },
+    {
+      id: 0,
+      name: 'Select...',
+      idSayuran: 0,
+      tanggalTanam: '2023-09-18',
+      panjang: 20,
+      lebar: 6,
+      status: 'Auto',
+      waktuNyala: 6,
+      lamaNyala: 30,
+      mode: 'Periodik',
+      periode: 'Hari',
+    },
     {
       id: 1,
       name: 'Blok-2',
