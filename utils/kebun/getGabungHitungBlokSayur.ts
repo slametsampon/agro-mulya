@@ -1,37 +1,40 @@
+import { BlokLengkap, BlokSingkat, Sayuran } from 'utils/definition'
 import formatDate from 'utils/formatDate'
 
-export default function getGabungHitungBlokSayur(blok, sayur) {
-  blok.sayuran = sayur
+export default function getGabungHitungBlokSayur(blok, sayur: Sayuran): BlokLengkap {
+  const blokLengkap: BlokLengkap = blok
+  blokLengkap.sayuran = sayur
 
   //hitung luas
-  blok.luas = blok.panjang * blok.lebar
+  blokLengkap.luas = blokLengkap.panjang * blokLengkap.lebar
 
   //hitung progress
-  const calcDate = new Date(blok.tanggalTanam)
-  const tglTanam = new Date(blok.tanggalTanam)
-  const estPanen = calcDate.setDate(calcDate.getDate() + blok.sayuran.umur)
-  blok.estPanen = formatDate(estPanen)
+  const calcDate = new Date(blokLengkap.tanggalTanam)
+  const tglTanam = new Date(blokLengkap.tanggalTanam)
+  const estPanen = calcDate.setDate(calcDate.getDate() + blokLengkap.sayuran.umur)
+  blokLengkap.estPanen = formatDate(estPanen)
   const toDay = new Date()
   const progress = Math.round(
-    ((toDay.getTime() - tglTanam.getTime()) * 100) / (blok.sayuran.umur * 1000 * 60 * 60 * 24)
+    ((toDay.getTime() - tglTanam.getTime()) * 100) /
+      (blokLengkap.sayuran.umur * 1000 * 60 * 60 * 24)
   )
-  blok.progres = progress
+  blokLengkap.progres = progress
 
   //calc jumlah sayur, bedeng, jalur, baris
   const lebarBedeng = 100
   const jarakBedeng = 50
   const totalLebar = lebarBedeng + jarakBedeng
-  const jumlahBedeng = Math.round((blok.lebar * 100) / totalLebar)
-  blok.jumlahBedeng = jumlahBedeng
-  const jumlahJalur = Math.round(lebarBedeng / blok.sayuran.jarakTanam) + 1
-  blok.jumlahJalur = jumlahJalur
-  const jumlahBaris = Math.round((blok.panjang * 100) / blok.sayuran.jarakTanam) + 1
-  blok.jumlahBaris = jumlahBaris
+  const jumlahBedeng = Math.round((blokLengkap.lebar * 100) / totalLebar)
+  blokLengkap.jumlahBedeng = jumlahBedeng
+  const jumlahJalur = Math.round(lebarBedeng / blokLengkap.sayuran.jarakTanam) + 1
+  blokLengkap.jumlahJalur = jumlahJalur
+  const jumlahBaris = Math.round((blokLengkap.panjang * 100) / blokLengkap.sayuran.jarakTanam) + 1
+  blokLengkap.jumlahBaris = jumlahBaris
   const jumlahSayurBedeng = jumlahJalur * jumlahBaris
-  blok.jumlahTanam = jumlahBedeng * jumlahSayurBedeng
+  blokLengkap.jumlahTanam = jumlahBedeng * jumlahSayurBedeng
 
   //calc berat
-  blok.berat = Math.round((blok.jumlahTanam * blok.sayuran.berat) / 1000)
+  blokLengkap.berat = Math.round((blokLengkap.jumlahTanam * blokLengkap.sayuran.berat) / 1000)
 
-  return blok
+  return blokLengkap
 }
