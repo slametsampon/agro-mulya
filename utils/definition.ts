@@ -32,6 +32,8 @@ export interface BlokLengkap {
   panjang: number
   lebar: number
   luas: number
+  lebarBedeng: number
+  jarakBedeng: number
   jumlahBedeng: number
   jumlahJalur: number
   jumlahBaris: number

@@ -21,12 +21,12 @@ export default function getGabungHitungBlokSayur(blok, sayur: Sayuran): BlokLeng
   blokLengkap.progres = progress
 
   //calc jumlah sayur, bedeng, jalur, baris
-  const lebarBedeng = 100
-  const jarakBedeng = 50
-  const totalLebar = lebarBedeng + jarakBedeng
+  blokLengkap.lebarBedeng = 100
+  blokLengkap.jarakBedeng = 50
+  const totalLebar = blokLengkap.lebarBedeng + blokLengkap.jarakBedeng
   const jumlahBedeng = Math.round((blokLengkap.lebar * 100) / totalLebar)
   blokLengkap.jumlahBedeng = jumlahBedeng
-  const jumlahJalur = Math.round(lebarBedeng / blokLengkap.sayuran.jarakTanam) + 1
+  const jumlahJalur = Math.round(blokLengkap.lebarBedeng / blokLengkap.sayuran.jarakTanam) + 1
   blokLengkap.jumlahJalur = jumlahJalur
   const jumlahBaris = Math.round((blokLengkap.panjang * 100) / blokLengkap.sayuran.jarakTanam) + 1
   blokLengkap.jumlahBaris = jumlahBaris

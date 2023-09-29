@@ -15,7 +15,7 @@ const kebunStatic = {
     },
     {
       id: 1,
-      name: 'Blok-2',
+      name: 'Blok-1',
       idSayuran: 1,
       tanggalTanam: '2023-09-18',
       panjang: 20,

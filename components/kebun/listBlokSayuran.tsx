@@ -1,4 +1,5 @@
 import formatDate from 'utils/formatDate'
+import CustomLink from '../Link'
 
 export default function ListBlokSayuran({ blokSayuran }) {
   return (
@@ -24,7 +25,14 @@ export default function ListBlokSayuran({ blokSayuran }) {
                 className="flex flex-col mt-2 rounded-2xl bg-green-50 text-left font-normal text-gray-900 shadow-xl dark:bg-gray-900 dark:text-gray-100 md:grid md:grid-cols-8"
               >
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Blok Id</div>
-                <div className="px-6 py-3 text-left">{blok.id}</div>
+                <CustomLink
+                  key={blok.id}
+                  href={`/kebun/sayuran/blok/${blok.id}`}
+                  className="link-active px-6 py-3 sm:block font-semibold text-blue-700 dark:text-gray-100"
+                >
+                  {blok.id}
+                </CustomLink>
+
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
                 <div className="px-6 py-3 text-left">{blok.luas}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Nama</div>
