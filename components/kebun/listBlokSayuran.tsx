@@ -30,7 +30,7 @@ export default function ListBlokSayuran({ blokSayuran }) {
                   href={`/kebun/sayuran/blok/${blok.id}`}
                   className="link-active px-6 py-3 sm:block font-semibold text-blue-700 dark:text-gray-100"
                 >
-                  {blok.id}
+                  {blok.name}
                 </CustomLink>
 
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
