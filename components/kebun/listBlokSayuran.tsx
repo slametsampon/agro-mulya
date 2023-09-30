@@ -6,7 +6,7 @@ export default function ListBlokSayuran({ blokSayuran }) {
     <>
       <div className="mt-3 font-semibold text-2xl text-green-700"> Sayuran </div>
       <div className="wo-table">
-        <div className="hidden rounded-2xl bg-slate-300 text-left font-bold text-gray-900 shadow-xl dark:bg-gray-900 dark:text-gray-100 md:grid md:grid-cols-8">
+        <div className="hidden rounded-2xl bg-green-200 text-left font-bold text-gray-900 shadow-xl dark:bg-gray-900 dark:text-gray-100 md:grid md:grid-cols-8">
           <div className="px-6 py-3 text-left">Blok Id</div>
           <div className="px-6 py-3 text-left">Luas (m2)</div>
           <div className="px-6 py-3 text-left">Tanaman</div>

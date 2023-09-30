@@ -45,3 +45,91 @@ export interface BlokLengkap {
   mode: string
   periode: string
 }
+export interface Ikan {
+  id: number
+  name: string
+  description: string
+  umur: number
+  padatTebar: number
+  berat: number
+}
+
+export interface KolamSingkat {
+  id: number
+  name: string
+  idSayuran: number
+  tanggalTanam: string
+  panjang: number
+  lebar: number
+  tinggi: number
+  status: string
+  waktuNyala: number
+  lamaNyala: number
+  mode: string
+  periode: string
+}
+export interface KolamLengkap {
+  id: number
+  name: string
+  idIkan: number
+  ikan: Ikan
+  tanggalMasuk: string
+  estPanen: string
+  progres: number
+  panjang: number
+  lebar: number
+  tinggi: number
+  luas: number
+  volume: number
+  jumlahIkan: number
+  berat: number
+  status: string
+  waktuNyala: number
+  lamaNyala: number
+  mode: string
+  periode: string
+}
+export interface Ayam {
+  id: number
+  name: string
+  description: string
+  umur: number
+  padatTebar: number
+  berat: number
+}
+
+export interface KandangSingkat {
+  id: number
+  name: string
+  idSayuran: number
+  tanggalTanam: string
+  panjang: number
+  lebar: number
+  tinggi: number
+  status: string
+  waktuNyala: number
+  lamaNyala: number
+  mode: string
+  periode: string
+}
+export interface KandangLengkap {
+  id: number
+  name: string
+  idIkan: number
+  ayam: Ayam
+  tanggalMasuk: string
+  estPanen: string
+  progres: number
+  panjang: number
+  lebar: number
+  tinggi: number
+  luas: number
+  volume: number
+  jumlahAyam: number
+  berat: number
+  status: string
+  waktuNyala: number
+  lamaNyala: number
+  mode: string
+  periode: string
+}
