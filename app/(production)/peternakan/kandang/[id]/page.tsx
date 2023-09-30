@@ -1,12 +1,14 @@
+import DetailKandang from '@/components/kebun/detailKandang'
 import { genPageMetadata } from 'app/seo'
+import getKandangLengkap from 'utils/kebun/kandang/getKandangLengkap'
 
 export const metadata = genPageMetadata({ title: 'Kandang' })
 
 export default async function Page({ params }: { params: { id: string } }) {
+  const kandangLengkap = await getKandangLengkap(parseInt(params.id))
   return (
     <>
-      <h1>Laman Detail Kandang - {params.id}</h1>
-      <h3>Under Construction</h3>
+      <DetailKandang kandangLengkap={kandangLengkap} />
     </>
   )
 }

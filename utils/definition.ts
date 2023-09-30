@@ -6,6 +6,8 @@ export interface Sayuran {
   umur: number
   jarakTanam: number
   berat: number
+  kebutuhanAir: number
+  kebutuhanPupuk: number
 }
 
 export interface BlokSingkat {
@@ -44,6 +46,8 @@ export interface BlokLengkap {
   lamaNyala: number
   mode: string
   periode: string
+  kebutuhanAir: number
+  kebutuhanPupuk: number
 }
 export interface Ikan {
   id: number
@@ -52,6 +56,8 @@ export interface Ikan {
   umur: number
   padatTebar: number
   berat: number
+  kebutuhanAir: number
+  kebutuhanPakan: number
 }
 
 export interface KolamSingkat {
@@ -88,6 +94,8 @@ export interface KolamLengkap {
   lamaNyala: number
   mode: string
   periode: string
+  kebutuhanAir: number
+  kebutuhanPakan: number
 }
 export interface Ayam {
   id: number
@@ -96,6 +104,8 @@ export interface Ayam {
   umur: number
   padatTebar: number
   berat: number
+  kebutuhanAir: number
+  kebutuhanPakan: number
 }
 
 export interface KandangSingkat {
@@ -132,4 +142,6 @@ export interface KandangLengkap {
   lamaNyala: number
   mode: string
   periode: string
+  kebutuhanAir: number
+  kebutuhanPakan: number
 }

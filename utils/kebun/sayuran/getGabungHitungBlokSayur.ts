@@ -20,7 +20,7 @@ export default function getGabungHitungBlokSayur(blok, sayur: Sayuran): BlokLeng
   )
   blokLengkap.progres = progress
 
-  //calc jumlah sayur, bedeng, jalur, baris
+  //calc jumlah sayur, bedeng, jalur, baris, air
   blokLengkap.lebarBedeng = 100
   blokLengkap.jarakBedeng = 50
   const totalLebar = blokLengkap.lebarBedeng + blokLengkap.jarakBedeng
@@ -32,9 +32,17 @@ export default function getGabungHitungBlokSayur(blok, sayur: Sayuran): BlokLeng
   blokLengkap.jumlahBaris = jumlahBaris
   const jumlahSayurBedeng = jumlahJalur * jumlahBaris
   blokLengkap.jumlahTanam = jumlahBedeng * jumlahSayurBedeng
+  blokLengkap.kebutuhanAir = Math.round(
+    (blokLengkap.jumlahTanam * blokLengkap.sayuran.kebutuhanAir) / 1000
+  )
 
   //calc berat
   blokLengkap.berat = Math.round((blokLengkap.jumlahTanam * blokLengkap.sayuran.berat) / 1000)
+
+  //calc pupuk
+  blokLengkap.kebutuhanPupuk = Math.round(
+    (blokLengkap.jumlahTanam * blokLengkap.sayuran.kebutuhanPupuk) / 1000
+  )
 
   return blokLengkap
 }

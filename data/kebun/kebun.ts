@@ -108,6 +108,11 @@ const kebunStatic = {
       panjang: 200,
       lebar: 100,
       tinggi: 60,
+      status: 'Auto',
+      waktuNyala: 7,
+      lamaNyala: 30,
+      mode: 'Periodik',
+      periode: 'Hari',
     },
     {
       id: 2,
@@ -117,6 +122,11 @@ const kebunStatic = {
       panjang: 200,
       lebar: 60,
       tinggi: 60,
+      status: 'Auto',
+      waktuNyala: 7,
+      lamaNyala: 30,
+      mode: 'Periodik',
+      periode: 'Hari',
     },
     {
       id: 3,
@@ -126,6 +136,11 @@ const kebunStatic = {
       panjang: 400,
       lebar: 200,
       tinggi: 60,
+      status: 'Auto',
+      waktuNyala: 7,
+      lamaNyala: 30,
+      mode: 'Periodik',
+      periode: 'Hari',
     },
   ],
   sayuran: [
@@ -137,6 +152,8 @@ const kebunStatic = {
       umur: 40,
       jarakTanam: 30,
       berat: 100,
+      kebutuhanAir: 750,
+      kebutuhanPupuk: 12,
     },
     {
       id: 2,
@@ -145,6 +162,8 @@ const kebunStatic = {
       umur: 60,
       jarakTanam: 30,
       berat: 100,
+      kebutuhanAir: 750,
+      kebutuhanPupuk: 7.5,
     },
     {
       id: 3,
@@ -153,6 +172,8 @@ const kebunStatic = {
       umur: 35,
       jarakTanam: 30,
       berat: 100,
+      kebutuhanAir: 750,
+      kebutuhanPupuk: 15,
     },
   ],
   ikan: [
@@ -164,6 +185,8 @@ const kebunStatic = {
       umur: 720,
       berat: 10,
       padatTebar: 30,
+      kebutuhanAir: 1000,
+      kebutuhanPakan: 925,
     },
     {
       id: 2,
@@ -172,6 +195,8 @@ const kebunStatic = {
       umur: 120,
       berat: 5,
       padatTebar: 40,
+      kebutuhanAir: 500,
+      kebutuhanPakan: 850,
     },
     {
       id: 3,
@@ -180,6 +205,8 @@ const kebunStatic = {
       umur: 180,
       berat: 1.5,
       padatTebar: 60,
+      kebutuhanAir: 250,
+      kebutuhanPakan: 750,
     },
   ],
   ayam: [
@@ -191,6 +218,8 @@ const kebunStatic = {
       umur: 40,
       padatTebar: 30,
       berat: 500,
+      kebutuhanAir: 1500,
+      kebutuhanPakan: 1234,
     },
     {
       id: 2,
@@ -199,6 +228,8 @@ const kebunStatic = {
       umur: 40,
       padatTebar: 30,
       berat: 700,
+      kebutuhanAir: 1000,
+      kebutuhanPakan: 750,
     },
     {
       id: 3,
@@ -207,6 +238,8 @@ const kebunStatic = {
       umur: 40,
       padatTebar: 30,
       berat: 750,
+      kebutuhanAir: 1250,
+      kebutuhanPakan: 1250,
     },
   ],
   dripper: [
