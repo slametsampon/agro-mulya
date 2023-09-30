@@ -144,7 +144,16 @@ const kebunStatic = {
     },
   ],
   sayuran: [
-    { id: 0, name: 'Select...', description: 'Select Sayuran', umur: 0, jarakTanam: 0, berat: 0 },
+    {
+      id: 0,
+      name: 'Select...',
+      description: 'Select Sayuran',
+      umur: 0,
+      jarakTanam: 0,
+      berat: 0,
+      kebutuhanAir: 0,
+      kebutuhanPupuk: 0,
+    },
     {
       id: 1,
       name: 'Bayam',
@@ -177,7 +186,16 @@ const kebunStatic = {
     },
   ],
   ikan: [
-    { id: 0, name: 'Select...', description: 'Select Ikan' },
+    {
+      id: 0,
+      name: 'Select...',
+      description: 'Select Ikan',
+      umur: 720,
+      berat: 10,
+      padatTebar: 30,
+      kebutuhanAir: 1000,
+      kebutuhanPakan: 925,
+    },
     {
       id: 1,
       name: 'Diskus',
@@ -210,7 +228,16 @@ const kebunStatic = {
     },
   ],
   ayam: [
-    { id: 0, name: 'Select...', description: 'Select Ayam' },
+    {
+      id: 0,
+      name: 'Select...',
+      description: 'Select Ayam',
+      umur: 40,
+      padatTebar: 30,
+      berat: 500,
+      kebutuhanAir: 1500,
+      kebutuhanPakan: 1234,
+    },
     {
       id: 1,
       name: 'Ayam Potong',
