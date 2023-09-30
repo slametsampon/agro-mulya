@@ -218,7 +218,7 @@ const kebunStatic = {
     },
     {
       id: 3,
-      name: 'Neon Tetra',
+      name: 'Neon-Tetra',
       description: 'Ikan Hias Neon Tetra',
       umur: 180,
       berat: 1.5,
@@ -240,7 +240,7 @@ const kebunStatic = {
     },
     {
       id: 1,
-      name: 'Ayam Potong',
+      name: 'Ayam-Potong',
       description: 'Ayam Potong',
       umur: 40,
       padatTebar: 30,
@@ -250,9 +250,9 @@ const kebunStatic = {
     },
     {
       id: 2,
-      name: 'Ayam Kampung',
+      name: 'Ayam-Kampung',
       description: 'Ayam Kampung',
-      umur: 40,
+      umur: 150,
       padatTebar: 30,
       berat: 700,
       kebutuhanAir: 1000,
@@ -260,9 +260,9 @@ const kebunStatic = {
     },
     {
       id: 3,
-      name: 'Ayam Petelur',
+      name: 'Ayam-Petelur',
       description: 'Ayam Petelur',
-      umur: 40,
+      umur: 90,
       padatTebar: 30,
       berat: 750,
       kebutuhanAir: 1250,
