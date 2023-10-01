@@ -241,12 +241,12 @@ const kebunStatic = {
     {
       id: 1,
       name: 'Ayam-Potong',
-      description: 'Ayam Potong',
+      description: 'Ayam Potong Broiler',
       umur: 40,
-      padatTebar: 30,
-      berat: 500,
+      padatTebar: 10,
+      berat: 2300,
       kebutuhanAir: 1500,
-      kebutuhanPakan: 1234,
+      kebutuhanPakan: 3500,
     },
     {
       id: 2,

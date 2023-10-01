@@ -39,6 +39,9 @@ export default function getGabungHitungBlokSayur(blok, sayur: Sayuran): BlokLeng
   //calc berat
   blokLengkap.berat = Math.round((blokLengkap.jumlahTanam * blokLengkap.sayuran.berat) / 1000)
 
+  //calc FCR
+  blokLengkap.sayuran.FCR = blokLengkap.sayuran.kebutuhanPupuk / blokLengkap.sayuran.berat
+
   //calc pupuk
   blokLengkap.kebutuhanPupuk = Math.round(
     (blokLengkap.jumlahTanam * blokLengkap.sayuran.kebutuhanPupuk) / 1000

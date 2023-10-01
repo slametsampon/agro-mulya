@@ -8,6 +8,7 @@ export interface Sayuran {
   berat: number
   kebutuhanAir: number
   kebutuhanPupuk: number
+  FCR: number
 }
 
 export interface BlokSingkat {
@@ -58,6 +59,7 @@ export interface Ikan {
   berat: number
   kebutuhanAir: number
   kebutuhanPakan: number
+  FCR: number
 }
 
 export interface KolamSingkat {
@@ -106,6 +108,7 @@ export interface Ayam {
   berat: number
   kebutuhanAir: number
   kebutuhanPakan: number
+  FCR: number
 }
 
 export interface KandangSingkat {

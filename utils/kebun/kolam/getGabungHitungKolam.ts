@@ -20,10 +20,11 @@ export default function getGabungHitungKolam(kolam, ikan): KolamLengkap {
   //calc berat
   kolamLengkap.berat = Math.round(kolamLengkap.jumlahIkan * kolamLengkap.ikan.berat)
 
+  //calc FCR
+  kolamLengkap.ikan.FCR = kolamLengkap.ikan.kebutuhanPakan / kolamLengkap.ikan.berat
+
   //calc pakan
-  kolamLengkap.kebutuhanPakan = Math.round(
-    (kolamLengkap.berat * kolamLengkap.ikan.kebutuhanPakan) / 1000
-  )
+  kolamLengkap.kebutuhanPakan = Math.round((kolamLengkap.berat * kolamLengkap.ikan.FCR) / 1000)
 
   //hitung progress
   const calcDate = new Date(kolamLengkap.tanggalMasuk)
