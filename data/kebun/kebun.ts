@@ -153,6 +153,7 @@ const kebunStatic = {
       berat: 0,
       kebutuhanAir: 0,
       kebutuhanPupuk: 0,
+      FCR: 0,
     },
     {
       id: 1,
@@ -163,6 +164,7 @@ const kebunStatic = {
       berat: 100,
       kebutuhanAir: 750,
       kebutuhanPupuk: 12,
+      FCR: 0,
     },
     {
       id: 2,
@@ -173,6 +175,7 @@ const kebunStatic = {
       berat: 100,
       kebutuhanAir: 750,
       kebutuhanPupuk: 7.5,
+      FCR: 0,
     },
     {
       id: 3,
@@ -183,6 +186,7 @@ const kebunStatic = {
       berat: 100,
       kebutuhanAir: 750,
       kebutuhanPupuk: 15,
+      FCR: 0,
     },
   ],
   ikan: [
@@ -195,6 +199,7 @@ const kebunStatic = {
       padatTebar: 30,
       kebutuhanAir: 1000,
       kebutuhanPakan: 925,
+      FCR: 0,
     },
     {
       id: 1,
@@ -205,6 +210,7 @@ const kebunStatic = {
       padatTebar: 30,
       kebutuhanAir: 1000,
       kebutuhanPakan: 925,
+      FCR: 0,
     },
     {
       id: 2,
@@ -215,6 +221,7 @@ const kebunStatic = {
       padatTebar: 40,
       kebutuhanAir: 500,
       kebutuhanPakan: 850,
+      FCR: 0,
     },
     {
       id: 3,
@@ -225,6 +232,7 @@ const kebunStatic = {
       padatTebar: 60,
       kebutuhanAir: 250,
       kebutuhanPakan: 750,
+      FCR: 0,
     },
   ],
   ayam: [
@@ -237,6 +245,7 @@ const kebunStatic = {
       berat: 500,
       kebutuhanAir: 1500,
       kebutuhanPakan: 1234,
+      FCR: 0,
     },
     {
       id: 1,
@@ -247,6 +256,7 @@ const kebunStatic = {
       berat: 2300,
       kebutuhanAir: 1500,
       kebutuhanPakan: 3500,
+      FCR: 0,
     },
     {
       id: 2,
@@ -257,6 +267,7 @@ const kebunStatic = {
       berat: 700,
       kebutuhanAir: 1000,
       kebutuhanPakan: 750,
+      FCR: 0,
     },
     {
       id: 3,
@@ -267,6 +278,7 @@ const kebunStatic = {
       berat: 750,
       kebutuhanAir: 1250,
       kebutuhanPakan: 1250,
+      FCR: 0,
     },
   ],
   dripper: [
