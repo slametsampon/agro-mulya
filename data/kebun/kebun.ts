@@ -86,7 +86,7 @@ const kebunStatic = {
     {
       id: 3,
       name: 'Kandang-3',
-      idAyam: 5,
+      idAyam: 3,
       tanggalMasuk: '2023-09-18',
       panjang: 3,
       lebar: 6,
@@ -131,7 +131,7 @@ const kebunStatic = {
     {
       id: 3,
       name: 'Kolam-3',
-      idIkan: 5,
+      idIkan: 3,
       tanggalMasuk: '2023-09-18',
       panjang: 400,
       lebar: 200,
