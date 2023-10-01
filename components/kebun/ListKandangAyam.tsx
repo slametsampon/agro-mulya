@@ -36,7 +36,13 @@ export default function ListKandangAyam({ kandangAyam }) {
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
                 <div className="px-6 py-3 text-left">{kandang.luas}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Nama</div>
-                <div className="px-6 py-3 text-left">{kandang.ayam.name}</div>
+                <CustomLink
+                  key={kandang.idAyam}
+                  href={`/peternakan/${kandang.idAyam}`}
+                  className="link-active px-6 py-3 sm:block font-semibold text-blue-700 dark:text-gray-100"
+                >
+                  {kandang.ayam.name}
+                </CustomLink>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{kandang.jumlahAyam}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>

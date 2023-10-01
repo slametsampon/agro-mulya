@@ -36,7 +36,13 @@ export default function ListBlokSayuran({ blokSayuran }) {
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
                 <div className="px-6 py-3 text-left">{blok.luas}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Nama</div>
-                <div className="px-6 py-3 text-left">{blok.sayuran.name}</div>
+                <CustomLink
+                  key={blok.idSayuran}
+                  href={`/kebun/sayuran/${blok.idSayuran}`}
+                  className="link-active px-6 py-3 sm:block font-semibold text-blue-700 dark:text-gray-100"
+                >
+                  {blok.sayuran.name}
+                </CustomLink>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{blok.jumlahTanam}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>

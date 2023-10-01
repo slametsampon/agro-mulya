@@ -36,7 +36,13 @@ export default function ListKolamIkan({ kolamIkan }) {
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
                 <div className="px-6 py-3 text-left">{kolam.luas}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Nama</div>
-                <div className="px-6 py-3 text-left">{kolam.ikan.name}</div>
+                <CustomLink
+                  key={kolam.idIkan}
+                  href={`/kebun/perikanan/${kolam.idIkan}`}
+                  className="link-active px-6 py-3 sm:block font-semibold text-blue-700 dark:text-gray-100"
+                >
+                  {kolam.ikan.name}
+                </CustomLink>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{kolam.jumlahIkan}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>
