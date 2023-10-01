@@ -6,7 +6,12 @@ export default async function getStaticSayur(id: number) {
     if (resultIndex < 0) {
       resultIndex = 0
     }
-    return kebunStatic.sayuran[resultIndex]
+    const sayur = kebunStatic.sayuran[resultIndex]
+
+    //calc FCR
+    sayur.FCR = sayur.kebutuhanPupuk / sayur.berat
+
+    return sayur
   } catch (error) {
     console.log('getStaticSayur - error: ', error)
     return kebunStatic.sayuran[0]

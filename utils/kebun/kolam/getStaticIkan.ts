@@ -6,7 +6,12 @@ export default async function getStaticIkan(id: number) {
     if (resultIndex < 0) {
       resultIndex = 0
     }
-    return kebunStatic.ikan[resultIndex]
+    const ikan = kebunStatic.ikan[resultIndex]
+
+    //calc FCR
+    ikan.FCR = ikan.kebutuhanPakan / ikan.berat
+
+    return ikan
   } catch (error) {
     console.log('getStaticIkan - error: ', error)
     return kebunStatic.ikan[0]

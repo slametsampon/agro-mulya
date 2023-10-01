@@ -6,7 +6,12 @@ export default async function getStaticAyam(id: number) {
     if (resultIndex < 0) {
       resultIndex = 0
     }
-    return kebunStatic.ayam[resultIndex]
+    const ayam = kebunStatic.ayam[resultIndex]
+
+    //calc FCR
+    ayam.FCR = ayam.kebutuhanPakan / ayam.berat
+
+    return ayam
   } catch (error) {
     console.log('getStaticAyam - error: ', error)
     return kebunStatic.ayam[0]
