@@ -1,4 +1,6 @@
 import formatDate from 'utils/formatDate'
+import getSatuan from 'utils/getSatuan'
+import CustomLink from '../Link'
 
 export default function DetailKolam({ kolamLengkap }) {
   //const properties = Object.getOwnPropertyNames(kolamLengkap)
@@ -11,19 +13,12 @@ export default function DetailKolam({ kolamLengkap }) {
     'tanggalMasuk',
     'estPanen',
     'progres',
-    'berat',
-    'kebutuhanAir',
-    'kebutuhanPakan',
+    'totalBerat',
+    'totalAir',
+    'totalPakan',
   ]
 
-  const propertiesSirkulasi = [
-    'status',
-    'waktuNyala',
-    'lamaNyala',
-    'mode',
-    'periode',
-    'kebutuhanAir',
-  ]
+  const propertiesSirkulasi = ['status', 'waktuNyala', 'lamaNyala', 'mode', 'periode', 'totalAir']
 
   return (
     <>
@@ -34,7 +29,9 @@ export default function DetailKolam({ kolamLengkap }) {
         {propertiesDimensi.map((property) => (
           <div key={property} className="font-medium">
             <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-              <div className=" px-3 font-bold">{property}</div>
+              <div className=" px-3 font-bold">
+                {property} {getSatuan(property)}
+              </div>
               <div className="col-span-2 px-3 font-normal">{kolamLengkap[property]}</div>
             </div>
           </div>
@@ -46,7 +43,9 @@ export default function DetailKolam({ kolamLengkap }) {
         {propertiesSirkulasi.map((property) => (
           <div key={property} className="font-medium">
             <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-              <div className=" px-3 font-bold">{property}</div>
+              <div className=" px-3 font-bold">
+                {property} {getSatuan(property)}
+              </div>
               <div className="col-span-2 px-3 font-normal">{kolamLengkap[property]}</div>
             </div>
           </div>
@@ -59,14 +58,27 @@ export default function DetailKolam({ kolamLengkap }) {
           property === 'name' ? (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
-                <div className="col-span-2 px-3 font-normal">{kolamLengkap.ikan[property]}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
+                <div className="col-span-2 px-3 font-normal">
+                  {' '}
+                  <CustomLink
+                    key={kolamLengkap.idIkan}
+                    href={`/kebun/perikanan/${kolamLengkap.idIkan}`}
+                    className="link-active px-3 py-3 sm:block font-semibold text-blue-700 dark:text-gray-100"
+                  >
+                    {kolamLengkap.ikan[property]}
+                  </CustomLink>
+                </div>
               </div>
             </div>
           ) : property === 'tanggalMasuk' ? (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
                 <div className="col-span-2 px-3 font-normal">
                   {formatDate(kolamLengkap[property])}
                 </div>
@@ -75,7 +87,9 @@ export default function DetailKolam({ kolamLengkap }) {
           ) : (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
                 <div className="col-span-2 px-3 font-normal">{kolamLengkap[property]}</div>
               </div>
             </div>

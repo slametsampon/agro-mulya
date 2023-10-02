@@ -5,26 +5,26 @@ export default function getGabungHitungKolam(kolam, ikan): KolamLengkap {
   const kolamLengkap: KolamLengkap = kolam
   kolamLengkap.ikan = ikan
 
-  //hitung luas & volume
+  //hitung luas & volume dalam cm
   kolamLengkap.luas = kolamLengkap.panjang * kolamLengkap.lebar
-  kolamLengkap.volume = Math.round((kolamLengkap.luas * kolamLengkap.tinggi) / 1000)
+  kolamLengkap.volume = Math.round((kolamLengkap.luas * kolamLengkap.tinggi) / 1000) //dalam liter
 
   //calc jumlah
   kolamLengkap.jumlahIkan = Math.round((kolamLengkap.volume * kolamLengkap.ikan.padatTebar) / 1000)
 
   //calc kebutuhan air
-  kolamLengkap.kebutuhanAir = Math.round(
+  kolamLengkap.totalAir = Math.round(
     (kolamLengkap.jumlahIkan * kolamLengkap.ikan.kebutuhanAir) / 1000
   )
 
   //calc berat
-  kolamLengkap.berat = Math.round(kolamLengkap.jumlahIkan * kolamLengkap.ikan.berat)
+  kolamLengkap.totalBerat = Math.round(kolamLengkap.jumlahIkan * kolamLengkap.ikan.berat)
 
   //calc FCR
   kolamLengkap.ikan.FCR = kolamLengkap.ikan.kebutuhanPakan / kolamLengkap.ikan.berat
 
   //calc pakan
-  kolamLengkap.kebutuhanPakan = Math.round((kolamLengkap.berat * kolamLengkap.ikan.FCR) / 1000)
+  kolamLengkap.totalPakan = Math.round((kolamLengkap.totalBerat * kolamLengkap.ikan.FCR) / 1000)
 
   //hitung progress
   const calcDate = new Date(kolamLengkap.tanggalMasuk)

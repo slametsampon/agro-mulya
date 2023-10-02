@@ -41,14 +41,14 @@ export interface BlokLengkap {
   jumlahJalur: number
   jumlahBaris: number
   jumlahTanam: number
-  berat: number
+  totalBerat: number
   status: string
   waktuNyala: number
   lamaNyala: number
   mode: string
   periode: string
-  kebutuhanAir: number
-  kebutuhanPupuk: number
+  totalAir: number
+  totalPupuk: number
 }
 export interface Ikan {
   id: number
@@ -90,14 +90,14 @@ export interface KolamLengkap {
   luas: number
   volume: number
   jumlahIkan: number
-  berat: number
+  totalBerat: number
   status: string
   waktuNyala: number
   lamaNyala: number
   mode: string
   periode: string
-  kebutuhanAir: number
-  kebutuhanPakan: number
+  totalAir: number
+  totalPakan: number
 }
 export interface Ayam {
   id: number
@@ -139,12 +139,12 @@ export interface KandangLengkap {
   luas: number
   volume: number
   jumlahAyam: number
-  berat: number
+  totalBerat: number
   status: string
   waktuNyala: number
   lamaNyala: number
   mode: string
   periode: string
-  kebutuhanAir: number
-  kebutuhanPakan: number
+  totalAir: number
+  totalPakan: number
 }

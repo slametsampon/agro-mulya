@@ -1,4 +1,6 @@
 import formatDate from 'utils/formatDate'
+import getSatuan from 'utils/getSatuan'
+import CustomLink from '../Link'
 
 export default function DetailBlokSayuran({ blokSayuranLengkap }) {
   //const properties = Object.getOwnPropertyNames(blokSayuranLengkap)
@@ -22,9 +24,9 @@ export default function DetailBlokSayuran({ blokSayuranLengkap }) {
     'tanggalTanam',
     'estPanen',
     'progres',
-    'berat',
-    'kebutuhanAir',
-    'kebutuhanPupuk',
+    'totalBerat',
+    'totalAir',
+    'totalPupuk',
   ]
 
   const propertiesFertigasi = [
@@ -33,8 +35,8 @@ export default function DetailBlokSayuran({ blokSayuranLengkap }) {
     'lamaNyala',
     'mode',
     'periode',
-    'kebutuhanAir',
-    'kebutuhanPupuk',
+    'totalAir',
+    'totalPupuk',
   ]
 
   return (
@@ -46,7 +48,9 @@ export default function DetailBlokSayuran({ blokSayuranLengkap }) {
         {propertiesDimensi.map((property) => (
           <div key={property} className="font-medium">
             <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-              <div className=" px-3 font-bold">{property}</div>
+              <div className=" px-3 font-bold">
+                {property} {getSatuan(property)}
+              </div>
               <div className="col-span-2 px-3 font-normal">{blokSayuranLengkap[property]}</div>
             </div>
           </div>
@@ -58,7 +62,9 @@ export default function DetailBlokSayuran({ blokSayuranLengkap }) {
         {propertiesFertigasi.map((property) => (
           <div key={property} className="font-medium">
             <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-              <div className=" px-3 font-bold">{property}</div>
+              <div className=" px-3 font-bold">
+                {property} {getSatuan(property)}
+              </div>
               <div className="col-span-2 px-3 font-normal">{blokSayuranLengkap[property]}</div>
             </div>
           </div>
@@ -71,16 +77,26 @@ export default function DetailBlokSayuran({ blokSayuranLengkap }) {
           property === 'name' ? (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
                 <div className="col-span-2 px-3 font-normal">
-                  {blokSayuranLengkap.sayuran[property]}
+                  <CustomLink
+                    key={blokSayuranLengkap.idSayuran}
+                    href={`/kebun/sayuran/${blokSayuranLengkap.idSayuran}`}
+                    className="link-active py-1 px-1 sm:block font-semibold text-blue-700 dark:text-gray-100"
+                  >
+                    {blokSayuranLengkap.sayuran[property]}
+                  </CustomLink>
                 </div>
               </div>
             </div>
           ) : property === 'tanggalTanam' ? (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
                 <div className="col-span-2 px-3 font-normal">
                   {formatDate(blokSayuranLengkap[property])}
                 </div>
@@ -89,7 +105,9 @@ export default function DetailBlokSayuran({ blokSayuranLengkap }) {
           ) : (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
                 <div className="col-span-2 px-3 font-normal">{blokSayuranLengkap[property]}</div>
               </div>
             </div>

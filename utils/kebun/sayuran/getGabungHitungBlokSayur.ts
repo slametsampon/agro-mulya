@@ -5,7 +5,7 @@ export default function getGabungHitungBlokSayur(blok, sayur: Sayuran): BlokLeng
   const blokLengkap: BlokLengkap = blok
   blokLengkap.sayuran = sayur
 
-  //hitung luas
+  //hitung luas dalam cm
   blokLengkap.luas = blokLengkap.panjang * blokLengkap.lebar
 
   //hitung progress
@@ -21,29 +21,29 @@ export default function getGabungHitungBlokSayur(blok, sayur: Sayuran): BlokLeng
   blokLengkap.progres = progress
 
   //calc jumlah sayur, bedeng, jalur, baris, air
-  blokLengkap.lebarBedeng = 100
-  blokLengkap.jarakBedeng = 50
+  blokLengkap.lebarBedeng = 100 //cm
+  blokLengkap.jarakBedeng = 50 //cm
   const totalLebar = blokLengkap.lebarBedeng + blokLengkap.jarakBedeng
-  const jumlahBedeng = Math.round((blokLengkap.lebar * 100) / totalLebar)
+  const jumlahBedeng = Math.round(blokLengkap.lebar / totalLebar)
   blokLengkap.jumlahBedeng = jumlahBedeng
   const jumlahJalur = Math.round(blokLengkap.lebarBedeng / blokLengkap.sayuran.jarakTanam) + 1
   blokLengkap.jumlahJalur = jumlahJalur
-  const jumlahBaris = Math.round((blokLengkap.panjang * 100) / blokLengkap.sayuran.jarakTanam) + 1
+  const jumlahBaris = Math.round(blokLengkap.panjang / blokLengkap.sayuran.jarakTanam) + 1
   blokLengkap.jumlahBaris = jumlahBaris
   const jumlahSayurBedeng = jumlahJalur * jumlahBaris
   blokLengkap.jumlahTanam = jumlahBedeng * jumlahSayurBedeng
-  blokLengkap.kebutuhanAir = Math.round(
+  blokLengkap.totalAir = Math.round(
     (blokLengkap.jumlahTanam * blokLengkap.sayuran.kebutuhanAir) / 1000
   )
 
   //calc berat
-  blokLengkap.berat = Math.round((blokLengkap.jumlahTanam * blokLengkap.sayuran.berat) / 1000)
+  blokLengkap.totalBerat = Math.round((blokLengkap.jumlahTanam * blokLengkap.sayuran.berat) / 1000)
 
   //calc FCR
   blokLengkap.sayuran.FCR = blokLengkap.sayuran.kebutuhanPupuk / blokLengkap.sayuran.berat
 
   //calc pupuk
-  blokLengkap.kebutuhanPupuk = Math.round(
+  blokLengkap.totalPupuk = Math.round(
     (blokLengkap.jumlahTanam * blokLengkap.sayuran.kebutuhanPupuk) / 1000
   )
 

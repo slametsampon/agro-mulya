@@ -31,8 +31,8 @@ export default function ListAyamDalamKandang({ listKandangLengkap }) {
 
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{kandang.jumlahAyam}</div>
-                <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>
-                <div className="px-6 py-3 text-left">{kandang.berat}</div>
+                <div className="px-6 mt-3 text-left font-bold md:hidden">Total Berat (Kg)</div>
+                <div className="px-6 py-3 text-left">{kandang.totalBerat}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Estimasi Panen</div>
                 <div className="px-6 py-3 text-left">{kandang.estPanen}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Progres (%)</div>

@@ -31,8 +31,8 @@ export default function ListIkanDalamKolam({ listKolamLengkap }) {
 
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{kolam.jumlahIkan}</div>
-                <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>
-                <div className="px-6 py-3 text-left">{kolam.berat}</div>
+                <div className="px-6 mt-3 text-left font-bold md:hidden">Total Berat (Kg)</div>
+                <div className="px-6 py-3 text-left">{kolam.totalBerat}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Estimasi Panen</div>
                 <div className="px-6 py-3 text-left">{kolam.estPanen}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Progres (%)</div>

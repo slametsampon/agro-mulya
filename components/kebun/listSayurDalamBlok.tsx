@@ -31,8 +31,8 @@ export default function ListSayurDalamBlok({ listBlokLengkap }) {
 
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{blok.jumlahTanam}</div>
-                <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>
-                <div className="px-6 py-3 text-left">{blok.berat}</div>
+                <div className="px-6 mt-3 text-left font-bold md:hidden">Total Berat (Kg)</div>
+                <div className="px-6 py-3 text-left">{blok.totalBerat}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Estimasi Panen</div>
                 <div className="px-6 py-3 text-left">{blok.estPanen}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Progres (%)</div>

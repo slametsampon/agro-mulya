@@ -5,26 +5,30 @@ export default function getGabungHitungKandang(kandang, ayam): KandangLengkap {
   const kandangLengkap: KandangLengkap = kandang
   kandangLengkap.ayam = ayam
 
-  //hitung luas & volume
+  //hitung luas & volume dalam cm
   kandangLengkap.luas = kandangLengkap.panjang * kandangLengkap.lebar
   kandangLengkap.volume = kandangLengkap.luas * kandangLengkap.tinggi
 
   //calc jumlah
-  kandangLengkap.jumlahAyam = Math.round(kandangLengkap.luas * kandangLengkap.ayam.padatTebar)
+  kandangLengkap.jumlahAyam = Math.round(
+    (kandangLengkap.luas * kandangLengkap.ayam.padatTebar) / 10000
+  )
 
   //calc kebutuhan air
-  kandangLengkap.kebutuhanAir = Math.round(
+  kandangLengkap.totalAir = Math.round(
     (kandangLengkap.jumlahAyam * kandangLengkap.ayam.kebutuhanAir) / 1000
   )
 
   //calc berat
-  kandangLengkap.berat = Math.round((kandangLengkap.jumlahAyam * kandangLengkap.ayam.berat) / 1000)
+  kandangLengkap.totalBerat = Math.round(
+    (kandangLengkap.jumlahAyam * kandangLengkap.ayam.berat) / 1000
+  )
 
   //calc FCR
   kandangLengkap.ayam.FCR = kandangLengkap.ayam.kebutuhanPakan / kandangLengkap.ayam.berat
 
   //calc pakan
-  kandangLengkap.kebutuhanPakan = Math.round(kandangLengkap.berat * kandangLengkap.ayam.FCR)
+  kandangLengkap.totalPakan = Math.round(kandangLengkap.totalBerat * kandangLengkap.ayam.FCR)
 
   //hitung progress
   const calcDate = new Date(kandangLengkap.tanggalMasuk)

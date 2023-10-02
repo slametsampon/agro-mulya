@@ -1,4 +1,6 @@
 import formatDate from 'utils/formatDate'
+import getSatuan from 'utils/getSatuan'
+import CustomLink from '../Link'
 
 export default function DetailKandang({ kandangLengkap }) {
   //const properties = Object.getOwnPropertyNames(kandangLengkap)
@@ -11,19 +13,12 @@ export default function DetailKandang({ kandangLengkap }) {
     'tanggalMasuk',
     'estPanen',
     'progres',
-    'berat',
-    'kebutuhanAir',
-    'kebutuhanPakan',
+    'totalBerat',
+    'totalAir',
+    'totalPakan',
   ]
 
-  const propertiesSirkulasi = [
-    'status',
-    'waktuNyala',
-    'lamaNyala',
-    'mode',
-    'periode',
-    'kebutuhanAir',
-  ]
+  const propertiesSirkulasi = ['status', 'waktuNyala', 'lamaNyala', 'mode', 'periode', 'totalAir']
 
   return (
     <>
@@ -34,7 +29,9 @@ export default function DetailKandang({ kandangLengkap }) {
         {propertiesDimensi.map((property) => (
           <div key={property} className="font-medium">
             <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-              <div className=" px-3 font-bold">{property}</div>
+              <div className=" px-3 font-bold">
+                {property} {getSatuan(property)}
+              </div>
               <div className="col-span-2 px-3 font-normal">{kandangLengkap[property]}</div>
             </div>
           </div>
@@ -46,7 +43,9 @@ export default function DetailKandang({ kandangLengkap }) {
         {propertiesSirkulasi.map((property) => (
           <div key={property} className="font-medium">
             <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-              <div className=" px-3 font-bold">{property}</div>
+              <div className=" px-3 font-bold">
+                {property} {getSatuan(property)}
+              </div>
               <div className="col-span-2 px-3 font-normal">{kandangLengkap[property]}</div>
             </div>
           </div>
@@ -59,14 +58,26 @@ export default function DetailKandang({ kandangLengkap }) {
           property === 'name' ? (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
-                <div className="col-span-2 px-3 font-normal">{kandangLengkap.ayam[property]}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
+                <div className="col-span-2 px-3 font-normal">
+                  <CustomLink
+                    key={kandangLengkap.idAyam}
+                    href={`/peternakan/${kandangLengkap.idAyam}`}
+                    className="link-active px-3 py-3 sm:block font-semibold text-blue-700 dark:text-gray-100"
+                  >
+                    {kandangLengkap.ayam[property]}
+                  </CustomLink>
+                </div>
               </div>
             </div>
           ) : property === 'tanggalMasuk' ? (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
                 <div className="col-span-2 px-3 font-normal">
                   {formatDate(kandangLengkap[property])}
                 </div>
@@ -75,7 +86,9 @@ export default function DetailKandang({ kandangLengkap }) {
           ) : (
             <div key={property} className="font-medium">
               <div className="mb-4 flex flex-col md:grid md:grid-cols-3 rounded-xl bg-slate-50 px-3 py-1 shadow-md dark:bg-gray-900">
-                <div className=" px-3 font-bold">{property}</div>
+                <div className=" px-3 font-bold">
+                  {property} {getSatuan(property)}
+                </div>
                 <div className="col-span-2 px-3 font-normal">{kandangLengkap[property]}</div>
               </div>
             </div>
