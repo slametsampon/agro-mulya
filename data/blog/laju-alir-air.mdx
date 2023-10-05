@@ -43,6 +43,44 @@ Berikut langkah-langkah untuk menghitung laju aliran air menggunakan Hukum Hagen
 
 Penting untuk diingat bahwa Hukum Hagen-Poiseuille hanya berlaku untuk aliran laminar (aliran yang teratur dan berlapis) dalam pipa dengan diameter konstan. Jika aliran dalam pipa menjadi turbulen (kaotis), rumus ini tidak berlaku, dan perlu menggunakan metode lain untuk menghitung laju aliran. Selain itu, pastikan untuk memperhatikan kondisi batas, seperti suhu fluida, yang dapat memengaruhi viskositas kinematik air.
 
+## Menghitung laju aliran air pada pipa diameter 0.7 mm, panjang 30 cm, perbedaan tekanan 10 m dengan memperhatikan hambatan pipa
+
+Untuk menghitung laju aliran air dalam pipa dengan memperhatikan hambatan pipa, Anda dapat menggunakan hukum Hagen-Poiseuille. Hukum ini menghubungkan laju aliran (Q) dalam pipa dengan diameter (D), panjang (L), viskositas fluida (η), dan perbedaan tekanan (ΔP). Formula Hagen-Poiseuille adalah sebagai berikut:
+
+$$Q = (π x D^4 x ΔP) / (128 x η x L)$$
+
+Di mana:
+Q = Laju aliran (m^3/s)
+D = Diameter pipa (m)
+ΔP = Perbedaan tekanan (Pa)
+η = Viskositas fluida (Pa.s atau N.s/m^2)
+L = Panjang pipa (m)
+
+Langkah-langkahnya adalah sebagai berikut:
+
+1. Konversi diameter pipa ke satuan meter: 0.7 mm = 0.0007 m
+2. Konversi perbedaan tekanan ke satuan pascal jika belum dalam satuan tersebut (1 bar = 100,000 Pa).
+3. Pastikan Anda mengetahui viskositas fluida yang mengalir dalam pipa (η) dalam satuan Pa.s. Untuk air pada suhu kamar, η sekitar 0.001 Pa.s.
+4. Konversi panjang pipa ke satuan meter jika belum dalam satuan tersebut (misalnya, 30 cm = 0.3 m).
+
+Sekarang kita dapat menghitung laju aliran air:
+
+Q = (π x (0.0007 m)^4 x ΔP) / (128 x 0.001 Pa.s x 0.3 m)
+
+Q = (3.1416 x 2.19744e-12 m^4 x ΔP) / (0.0384e-3 N.s/m^2)
+
+Q = (6.89916e-12 x ΔP) / (0.0384e-3) m^3/s
+
+Q ≈ 1.79979e-5 x ΔP m^3/s
+
+Dengan mengganti nilai ΔP dengan 10 m (10,000 Pa), kita dapat menghitung laju aliran air:
+
+Q ≈ 1.79979e-5 x 10,000 m^3/s
+
+Q ≈ 0.179979 m^3/s
+
+Jadi, laju aliran air dalam pipa tersebut adalah sekitar 0.179979 meter kubik per detik.
+
 ## Darcy-Weisbach
 
 Untuk menghitung laju aliran air dengan mempertimbangkan hambatan pipa dan perbedaan tekanan, Anda dapat menggunakan prinsip dasar hukum aliran fluida dan persamaan yang menggambarkan hambatan pipa. Salah satu persamaan yang umum digunakan dalam kasus ini adalah persamaan Darcy-Weisbach untuk menghitung kerugian tekanan dalam pipa. Selanjutnya, Anda dapat menggabungkan persamaan ini dengan prinsip hukum aliran fluida yang menyatakan bahwa kerugian tekanan adalah sebanding dengan laju aliran.
