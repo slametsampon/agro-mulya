@@ -1,7 +1,7 @@
-import { KolamLengkap } from 'utils/definition'
+import { Ikan, KolamLengkap } from 'utils/definition'
 import formatDate from 'utils/formatDate'
 
-export default function getGabungHitungKolam(kolam, ikan): KolamLengkap {
+export default function getGabungHitungKolam(kolam, ikan: Ikan): KolamLengkap {
   const kolamLengkap: KolamLengkap = kolam
   kolamLengkap.ikan = ikan
 

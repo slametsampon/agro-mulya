@@ -34,7 +34,7 @@ export default function ListBlokSayuran({ blokSayuran }) {
                 </CustomLink>
 
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
-                <div className="px-6 py-3 text-left">{blok.luas}</div>
+                <div className="px-6 py-3 text-left">{blok.luas / 10000}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Nama</div>
                 <CustomLink
                   key={blok.idSayuran}
@@ -46,7 +46,7 @@ export default function ListBlokSayuran({ blokSayuran }) {
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{blok.jumlahTanam}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>
-                <div className="px-6 py-3 text-left">{blok.berat}</div>
+                <div className="px-6 py-3 text-left">{blok.totalBerat}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Tanggal Tanam</div>
                 <div className="px-6 py-3 text-left">{formatDate(new Date(blok.tanggalTanam))}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Estimasi Panen</div>

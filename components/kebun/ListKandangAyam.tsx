@@ -34,7 +34,7 @@ export default function ListKandangAyam({ kandangAyam }) {
                 </CustomLink>
 
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
-                <div className="px-6 py-3 text-left">{kandang.luas}</div>
+                <div className="px-6 py-3 text-left">{kandang.luas / 10000}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Nama</div>
                 <CustomLink
                   key={kandang.idAyam}
@@ -46,7 +46,7 @@ export default function ListKandangAyam({ kandangAyam }) {
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{kandang.jumlahAyam}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>
-                <div className="px-6 py-3 text-left">{kandang.berat}</div>
+                <div className="px-6 py-3 text-left">{kandang.totalBerat}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Tanggal Masuk</div>
                 <div className="px-6 py-3 text-left">
                   {formatDate(new Date(kandang.tanggalMasuk))}

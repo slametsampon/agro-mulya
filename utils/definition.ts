@@ -24,16 +24,10 @@ export interface BlokSingkat {
   mode: string
   periode: string
 }
-export interface BlokLengkap {
-  id: number
-  name: string
-  idSayuran: number
+export interface BlokLengkap extends BlokSingkat {
   sayuran: Sayuran
-  tanggalTanam: string
   estPanen: string
   progres: number
-  panjang: number
-  lebar: number
   luas: number
   lebarBedeng: number
   jarakBedeng: number
@@ -42,11 +36,6 @@ export interface BlokLengkap {
   jumlahBaris: number
   jumlahTanam: number
   totalBerat: number
-  status: string
-  waktuNyala: number
-  lamaNyala: number
-  mode: string
-  periode: string
   totalAir: number
   totalPupuk: number
 }
@@ -65,8 +54,8 @@ export interface Ikan {
 export interface KolamSingkat {
   id: number
   name: string
-  idSayuran: number
-  tanggalTanam: string
+  idIkan: number
+  tanggalMasuk: string
   panjang: number
   lebar: number
   tinggi: number
@@ -76,26 +65,14 @@ export interface KolamSingkat {
   mode: string
   periode: string
 }
-export interface KolamLengkap {
-  id: number
-  name: string
-  idIkan: number
+export interface KolamLengkap extends KolamSingkat {
   ikan: Ikan
-  tanggalMasuk: string
   estPanen: string
   progres: number
-  panjang: number
-  lebar: number
-  tinggi: number
   luas: number
   volume: number
   jumlahIkan: number
   totalBerat: number
-  status: string
-  waktuNyala: number
-  lamaNyala: number
-  mode: string
-  periode: string
   totalAir: number
   totalPakan: number
 }
@@ -114,8 +91,8 @@ export interface Ayam {
 export interface KandangSingkat {
   id: number
   name: string
-  idSayuran: number
-  tanggalTanam: string
+  idAyam: number
+  tanggalMasuk: string
   panjang: number
   lebar: number
   tinggi: number
@@ -125,26 +102,15 @@ export interface KandangSingkat {
   mode: string
   periode: string
 }
-export interface KandangLengkap {
-  id: number
-  name: string
-  idIkan: number
+export interface KandangLengkap extends KandangSingkat {
   ayam: Ayam
   tanggalMasuk: string
   estPanen: string
   progres: number
-  panjang: number
-  lebar: number
-  tinggi: number
   luas: number
   volume: number
   jumlahAyam: number
   totalBerat: number
-  status: string
-  waktuNyala: number
-  lamaNyala: number
-  mode: string
-  periode: string
   totalAir: number
   totalPakan: number
 }

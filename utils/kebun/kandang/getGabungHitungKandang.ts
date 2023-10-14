@@ -1,7 +1,7 @@
-import { KandangLengkap } from 'utils/definition'
+import { Ayam, KandangLengkap } from 'utils/definition'
 import formatDate from 'utils/formatDate'
 
-export default function getGabungHitungKandang(kandang, ayam): KandangLengkap {
+export default function getGabungHitungKandang(kandang, ayam: Ayam): KandangLengkap {
   const kandangLengkap: KandangLengkap = kandang
   kandangLengkap.ayam = ayam
 

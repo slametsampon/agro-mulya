@@ -11,7 +11,7 @@ export default function ListKolamIkan({ kolamIkan }) {
           <div className="px-6 py-3 text-left">Luas (cm2)</div>
           <div className="px-6 py-3 text-left">Ikan</div>
           <div className="px-6 py-3 text-left">Jumlah</div>
-          <div className="px-6 py-3 text-left">Berat (Gr)</div>
+          <div className="px-6 py-3 text-left">Berat (gr)</div>
           <div className="px-6 py-3 text-left">Tanggal Masuk</div>
           <div className="px-6 py-3 text-left">Estimasi Panen</div>
           <div className="px-6 py-3 text-left">Progres (%)</div>
@@ -33,7 +33,7 @@ export default function ListKolamIkan({ kolamIkan }) {
                   {kolam.name}
                 </CustomLink>
 
-                <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (m2)</div>
+                <div className="px-6 mt-3 text-left font-bold md:hidden">Luas (cm2)</div>
                 <div className="px-6 py-3 text-left">{kolam.luas}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Nama</div>
                 <CustomLink
@@ -46,7 +46,7 @@ export default function ListKolamIkan({ kolamIkan }) {
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Jumlah</div>
                 <div className="px-6 py-3 text-left">{kolam.jumlahIkan}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Berat (Kg)</div>
-                <div className="px-6 py-3 text-left">{kolam.berat}</div>
+                <div className="px-6 py-3 text-left">{kolam.totalBerat}</div>
                 <div className="px-6 mt-3 text-left font-bold md:hidden">Tanggal Masuk</div>
                 <div className="px-6 py-3 text-left">
                   {formatDate(new Date(kolam.tanggalMasuk))}
