@@ -8,7 +8,7 @@ const LayoutSideNavbar = () => {
         <Link
           key={link.title}
           href={link.href}
-          className="link-active p-1 hidden sm:block font-semibold text-blue-700 dark:text-gray-100"
+          className="link-active p-1 sm:block font-semibold text-blue-700 dark:text-gray-100"
         >
           {link.title}
         </Link>
