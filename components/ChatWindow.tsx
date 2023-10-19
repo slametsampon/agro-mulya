@@ -146,6 +146,7 @@ export function ChatWindow(props: {
       }
     }
   }
+  console.log('messages : ', messages)
   return (
     <div
       className={`flex flex-col items-center p-4 md:p-8 rounded grow overflow-hidden text-white ${
