@@ -31,7 +31,7 @@ export default function page() {
   return (
     <ChatWindow
       endpoint="api/chat"
-      emoji=" 🦜"
+      emoji="🧑‍🔬"
       titleText="Diskusi Agro Mulya"
       placeholder="Silahkan ketikkan pertanyaanya di sini!"
       emptyStateComponent={InfoCard}
