@@ -8,13 +8,19 @@ export default async function getListLengkapAyamKandang(idAyam: number) {
     if (!listAyamDalamKandang) {
       return kebunStatic.kandang[0]
     }
-    const listKandangLengkap = await Promise.all(
-      listAyamDalamKandang.map((kolam) => {
-        return getKandangLengkap(kolam.id).then((kandangLengkap) => {
-          return kandangLengkap
-        })
-      })
-    )
+    // const listKandangLengkap = await Promise.all(
+    //   listAyamDalamKandang.map((kolam) => {
+    //     return getKandangLengkap(kolam.id).then((kandangLengkap) => {
+    //       return kandangLengkap
+    //     })
+    //   })
+    // )
+
+    const listKandangLengkapPromise = listAyamDalamKandang.map(async (kolam) => {
+      const kandangLengkap = await getKandangLengkap(kolam.id)
+      return kandangLengkap
+    })
+    const listKandangLengkap = Promise.all(listKandangLengkapPromise)
     return listKandangLengkap
   } catch (error) {
     console.log('getListLengkapAyamKandang-error : ', error)
