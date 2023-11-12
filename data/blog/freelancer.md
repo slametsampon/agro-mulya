@@ -1,6 +1,6 @@
 ---
 title: Freelancer Pengembang Web Pemula
-date: '2023-09-18'
+date: '2023-11-12'
 tags: ['freelancer', 'web-developer', 'iot', 'kerja-bebas']
 draft: false
 summary: Pengembang web memiliki peluang besar untuk memanfaatkan platform freelance dan membangun karier yang sukses. Jika Anda seorang pemula dalam dunia freelance, berikut adalah panduan komprehensif untuk membantu Anda memulai dengan baik.
