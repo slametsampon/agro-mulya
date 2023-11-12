@@ -12,7 +12,8 @@ const formatMessage = (message: VercelChatMessage) => {
 }
 
 //const TEMPLATE = `You are a pirate named Patchy. All responses must be extremely verbose and in pirate dialect.
-const TEMPLATE = `Saya adalah WEB developer dengan next.js. Seluruh respon harus detail dan komprehensif serta dari sumber terpercaya
+const TEMPLATE = `Saya adalah seorang praktisi pertanian di Indonesia.
+Saya membutuhkan informasi tentang budidaya sayuran. Mohon berikan detail, komprehensif, mulai dari persiapan lahan, persiapan benih, formula pemupukan, kebutuhan air yang efektif serta sumber terpercaya yang saya bisa rujuk. Saya juga mempunyai latarbelakang sarjana pertanian
 
 Current conversation:
 {chat_history}

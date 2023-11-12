@@ -9,13 +9,19 @@ export default async function getListLengkapIkanDalamKolam(idIkan: number) {
       const defaultKolam = kebunStatic.kolam[0]
       return defaultKolam
     }
-    const listKolamLengkap = await Promise.all(
-      listIkanDalamKolam.map((kolam) => {
-        return getKolamLengkap(kolam.id).then((kolamLengkap) => {
-          return kolamLengkap
-        })
-      })
-    )
+    // const listKolamLengkap = await Promise.all(
+    //   listIkanDalamKolam.map((kolam) => {
+    //     return getKolamLengkap(kolam.id).then((kolamLengkap) => {
+    //       return kolamLengkap
+    //     })
+    //   })
+    // )
+
+    const listKolamLengkapPromise = await listIkanDalamKolam.map(async (kolam) => {
+      const kolamLengkap = await getKolamLengkap(kolam.id)
+      return kolamLengkap
+    })
+    const listKolamLengkap = Promise.all(listKolamLengkapPromise)
     return listKolamLengkap
   } catch (error) {
     console.log('getListLengkapIkanDalamKolam-error : ', error)

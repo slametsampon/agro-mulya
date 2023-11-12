@@ -7,6 +7,32 @@ summary: MQTT (Message Queuing Telemetry Transport) adalah protokol komunikasi r
 images: []
 ---
 
+- [Karakteristik utama dari MQTT:](#karakteristik-utama-dari-mqtt)
+- [Apa itu topic dalam MQTT](#apa-itu-topic-dalam-mqtt)
+- [Identifikasi topic dalam MQTT](#identifikasi-topic-dalam-mqtt)
+- [Mekanisme pengiriman pesan dalam MQTT](#mekanisme-pengiriman-pesan-dalam-mqtt)
+- [Broker dalam MQTT](#broker-dalam-mqtt)
+- [Client dalam MQTT](#client-dalam-mqtt)
+- [Publisher dalam MQTT](#publisher-dalam-mqtt)
+- [Aplikasi](#aplikasi)
+- [Menghubungkan ESP32 dengan broker MQTT](#menghubungkan-esp32-dengan-broker-mqtt)
+  - [1. Instalasi Library MQTT pada Arduino IDE](#1-instalasi-library-mqtt-pada-arduino-ide)
+  - [2. Tentukan Parameter Koneksi](#2-tentukan-parameter-koneksi)
+  - [3. Inisialisasi Koneksi WiFi dan MQTT](#3-inisialisasi-koneksi-wifi-dan-mqtt)
+  - [4. Fungsi Koneksi ke Broker MQTT](#4-fungsi-koneksi-ke-broker-mqtt)
+  - [5. Fungsi Callback](#5-fungsi-callback)
+  - [6. Fungsi Loop](#6-fungsi-loop)
+- [Mengirim data dari ESP32 ke broker MQTT](#mengirim-data-dari-esp32-ke-broker-mqtt)
+- [Menerima pesan dari broker MQTT dan mengolahnya di ESP32](#menerima-pesan-dari-broker-mqtt-dan-mengolahnya-di-esp32)
+- [QoS (Quality of Service) 0, 1, dan 2 dalam mqtt](#qos-quality-of-service-0-1-dan-2-dalam-mqtt)
+- [Menjaga koneksi MQTT tetap stabil pada ESP32](#menjaga-koneksi-mqtt-tetap-stabil-pada-esp32)
+- [Pengamanan komunikasi MQTT antara ESP32 dan broker](#pengamanan-komunikasi-mqtt-antara-esp32-dan-broker)
+- [Debugging ketika ada masalah dalam komunikasi MQTT dengan ESP32](#debugging-ketika-ada-masalah-dalam-komunikasi-mqtt-dengan-esp32)
+- [Library MQTT yang direkomendasikan untuk digunakan dengan ESP32](#library-mqtt-yang-direkomendasikan-untuk-digunakan-dengan-esp32)
+- [Implementasi autentikasi dengan username dan password saat terhubung ke broker MQTT pada ESP32](#implementasi-autentikasi-dengan-username-dan-password-saat-terhubung-ke-broker-mqtt-pada-esp32)
+- [Implementasi Last Will and Testament (LWT) dalam MQTT, dan bagaimana mengonfiguraskannya di ESP32](#implementasi-last-will-and-testament-lwt-dalam-mqtt-dan-bagaimana-mengonfiguraskannya-di-esp32)
+  - [Hak cipta^1. Artikel ini berdasar ChatGpt \& penulis tidak menjamin seluruh akurasi isinya](#hak-cipta1-artikel-ini-berdasar-chatgpt--penulis-tidak-menjamin-seluruh-akurasi-isinya)
+
 MQTT (Message Queuing Telemetry Transport) adalah protokol komunikasi ringan yang digunakan untuk mengirimkan data antar perangkat atau aplikasi dalam jaringan yang memiliki bandwidth terbatas atau kondisi koneksi yang tidak stabil. MQTT dikembangkan oleh IBM pada tahun 1999 dan telah menjadi salah satu protokol yang populer dalam Internet of Things (IoT) dan aplikasi M2M (Machine-to-Machine) karena efisiensinya dalam penggunaan sumber daya.
 
 ![MQTT](/static/images/kontrol/mqtt.png)

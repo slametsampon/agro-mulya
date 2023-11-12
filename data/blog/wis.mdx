@@ -1,16 +1,24 @@
 ---
 title: WIS - Wireless Irrigation System
 date: '2023-09-12'
-tags: ['irigasi','hemat', 'IoT']
+tags: ['irigasi', 'hemat', 'IoT']
 draft: false
 summary: Irigasi otomatis tanpa kabel
 images: []
 ---
 
+- [Irrigation Control/IC.](#irrigation-controlic)
+  - [Secara detail fungsi IC adalah :](#secara-detail-fungsi-ic-adalah-)
+- [Monitoring suhu dan kelembaban (T, H)](#monitoring-suhu-dan-kelembaban-t-h)
+- [Water Storage Control – WSC](#water-storage-control--wsc)
+- [Komponen WIS :](#komponen-wis-)
+
 WIS dirancang dengan menggunakan WIFI sehingga bisa diakses via HP, Laptop yang mendukung browser. WIS bisa di-konfigurasi sebagai akses point (mandiri – tanpa WIFI dari luar) ataupun terhubung dengan WIFI yang ada, sehingga bisa diakses dari mana saja sepanjang jangkauan WIFI yang terhubung. Fungsi WIS dapat dibagi menjadi beberapa tugas berikut ini :
 
-##	Irrigation Control/IC.
+## Irrigation Control/IC.
+
 Pada pengendalian irigasi ini, WIS melakukan pengendalian secara mandiri dan tidak tergantung pada peralatan lain (smart phone, laptop). WIS melakukan pengendalian (control) berdasar pada nilai setting parameter meliputi :
+
 - Waktu mulai irigasi
 - Lama irigasi tiap group
 - Sequence/urutan tiap group
@@ -30,6 +38,7 @@ Pada pengendalian irigasi ini, WIS melakukan pengendalian secara mandiri dan tid
 ![Drip Irrigation](/static/images/wis/wis.jpg)
 
 ## Monitoring suhu dan kelembaban (T, H)
+
 WIS bisa dilengkapi dengan sensor suhu (T – Temperature) dan kelembaban (H – Humidity) untuk mengukur T,H lingkungan dimana sensor itu terpasang. Pengukuran ini diambil secara sampling setiap 30 detik. Nilai ini selanjutnya digunakan untuk proses selanjutnya seperti dalam paparan berikut ini :
 
 - WIS juga dilengkapi dengan sensor temperature (suhu) dan humidity (kelembeban) untuk lingkungan sekitarnya.
@@ -40,13 +49,15 @@ WIS bisa dilengkapi dengan sensor suhu (T – Temperature) dan kelembaban (H –
 - Bentuk semua reporting dalam file pdf, sehingga bisa di-share via wa atau email secara terpisah.
 
 ## Water Storage Control – WSC
-WIS juga bisa melakukan pengendalian cadangan air pada tangki penampungan (ST – Storage Tank) untuk irigasi. Pada pengendalian ini, WIS dilengkapi dengan sensor ketinggian permukaan air (LS - Level Switch). LS memberikan informasi yang dikirmkan ke WIS berupa signal level minimum dan penuh,  selanjutnya WIS memproses signal itu dengan pengendalian sbb:
+
+WIS juga bisa melakukan pengendalian cadangan air pada tangki penampungan (ST – Storage Tank) untuk irigasi. Pada pengendalian ini, WIS dilengkapi dengan sensor ketinggian permukaan air (LS - Level Switch). LS memberikan informasi yang dikirmkan ke WIS berupa signal level minimum dan penuh, selanjutnya WIS memproses signal itu dengan pengendalian sbb:
 
 - Pompa sumur ke storage tank (ST) menyala jika storage tank menyentuh level isi (sensor level) dan akan berhenti jika storage tank penuh.
 - Pompa distribusi akan menyala selama masa irigasi, dan berhenti jika sudah selesai.
 - Pompa distribusi juga berhenti saat storage tank menyentuh level minimum.
 
 ## Komponen WIS :
+
 - 4 Group (related to 4 solenoid valves, ½”, 12 VDC)
 - Each group will supply water (irrigation) for 4 beds (guludan)
 - Power Supply 220VAC to 12 VDC (10 A)
