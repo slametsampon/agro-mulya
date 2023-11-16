@@ -1,5 +1,6 @@
 import kebunStatic from '@/data/kebun/kebun'
 import CustomLink from '../Link'
+import Image from 'next/image'
 
 export default function CardSayuran() {
   const sayuran = kebunStatic.sayuran
@@ -25,10 +26,12 @@ export default function CardSayuran() {
                 <p className="px-2">{`Umur : ${umur} hari`}</p>
                 <p className="px-2">{`Berat : ${berat} gr`}</p>
               </div>
-              <img
-                className="max-h-[160px]  md:max-h-[200px] w-full object-cover rounded-xl"
+              <Image
+                className="h-full min-h-[200px] w-full object-cover rounded-xl"
                 src={`/static/images/sayuran/${name}.jpg`}
-                alt="/"
+                alt={`${name}.jpg`}
+                width={200}
+                height={200}
               />
             </div>
           )
