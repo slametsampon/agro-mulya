@@ -36,6 +36,17 @@ Berinvestasi dalam pengetahuan ini adalah langkah awal menuju keberhasilan dalam
   - [2.3 Kontrol Otomatis Suhu, Kelembaban, dan Ventilasi](#23-kontrol-otomatis-suhu-kelembaban-dan-ventilasi)
   - [2.4 Desain Kandang yang Efisien untuk Ternak Ayam](#24-desain-kandang-yang-efisien-untuk-ternak-ayam)
   - [2.5 Penggunaan Energi Terbarukan untuk Otomatisasi Kandang](#25-penggunaan-energi-terbarukan-untuk-otomatisasi-kandang)
+  - [2.6 Contoh perhitungan ventilasi dan cooling pad](#26-contoh-perhitungan-ventilasi-dan-cooling-pad)
+    - [**1. Prinsip Kerja Ventilasi Mekanis dan Cooling Pad**](#1-prinsip-kerja-ventilasi-mekanis-dan-cooling-pad)
+      - [**Proses Pendinginan Evaporatif (Cooling Pad)**](#proses-pendinginan-evaporatif-cooling-pad)
+    - [**2. Perhitungan Blower (Exhaust Fan)**](#2-perhitungan-blower-exhaust-fan)
+      - [**2.1. Kebutuhan Ventilasi**](#21-kebutuhan-ventilasi)
+      - [**2.2. Memilih Blower**](#22-memilih-blower)
+      - [**2.3. Perhitungan Tekanan Statis (Static Pressure)**](#23-perhitungan-tekanan-statis-static-pressure)
+    - [**3. Perhitungan Cooling Pad**](#3-perhitungan-cooling-pad)
+      - [**3.1. Kebutuhan Aliran Udara pada Cooling Pad**](#31-kebutuhan-aliran-udara-pada-cooling-pad)
+      - [**3.2. Sistem Sirkulasi Air pada Cooling Pad**](#32-sistem-sirkulasi-air-pada-cooling-pad)
+    - [**4. Kesimpulan**](#4-kesimpulan)
 - [Bab 3: IoT dan Sensor Monitoring untuk Ternak Ayam](#bab-3-iot-dan-sensor-monitoring-untuk-ternak-ayam)
   - [3.1 Penggunaan Teknologi IoT untuk Memantau Suhu, Kelembaban, dan Gas Amonia di Kandang](#31-penggunaan-teknologi-iot-untuk-memantau-suhu-kelembaban-dan-gas-amonia-di-kandang)
     - [1. Suhu](#1-suhu)
@@ -264,6 +275,135 @@ Mengintegrasikan sumber energi terbarukan dalam sistem kandang dapat mengurangi 
 
 3. **Sistem Pemantauan Berbasis IoT**:
    - Menggunakan perangkat IoT untuk mengoptimalkan penggunaan energi dan memantau kondisi kandang secara efisien.
+
+#### 2.6 Contoh perhitungan ventilasi dan cooling pad
+
+Sistem ventilasi dan pendinginan pada kandang ayam modern bertujuan untuk menjaga suhu dan kelembapan dalam batas optimal, sehingga mendukung produktivitas dan kesehatan ayam pedaging. Ventilasi mekanis dengan **exhaust fan** dan **cooling pad** adalah salah satu solusi yang paling umum diterapkan.
+
+---
+
+##### **1. Prinsip Kerja Ventilasi Mekanis dan Cooling Pad**
+
+Pada sistem ventilasi mekanis, udara panas di dalam kandang akan dikeluarkan oleh exhaust fan yang dipasang di salah satu sisi kandang, sedangkan udara segar yang lebih dingin masuk melalui **cooling pad** yang dipasang di sisi berlawanan.
+
+###### **Proses Pendinginan Evaporatif (Cooling Pad)**
+
+Cooling pad memanfaatkan prinsip **evaporative cooling**, di mana air yang mengalir melalui cooling pad akan menguap saat udara panas melewatinya. Proses ini menurunkan suhu udara yang masuk ke dalam kandang. Efisiensi cooling pad bergantung pada tingkat kelembapan udara luar dan laju aliran udara melalui pad.
+
+---
+
+##### **2. Perhitungan Blower (Exhaust Fan)**
+
+###### **2.1. Kebutuhan Ventilasi**
+
+Jumlah blower atau exhaust fan yang digunakan tergantung pada volume udara yang perlu dikeluarkan dari kandang untuk menjaga suhu dan kelembapan optimal. Perhitungan ventilasi menggunakan parameter **Air Changes per Hour (ACH)** dan **Cubic Feet per Minute (CFM)**.
+
+- **ACH (Air Changes per Hour)**: Jumlah berapa kali udara di dalam kandang perlu diganti setiap jam.
+
+  - Standar untuk ayam pedaging: **60–120 ACH** tergantung pada suhu lingkungan.
+  - Dalam kasus iklim tropis, Anda bisa menggunakan nilai **90 ACH** untuk kondisi normal dan meningkatkan menjadi **120 ACH** saat suhu tinggi.
+
+- **CFM (Cubic Feet per Minute)**: Volume udara yang perlu dikeluarkan oleh exhaust fan per menit.
+
+  Formula untuk menghitung **CFM** adalah:
+
+  $$
+  CFM = \frac{{Volume \, Kandang \times ACH}}{60}
+  $$
+
+  **Dimensi Kandang**: Untuk kapasitas 10.000 ekor, kandang biasanya berukuran **100 m x 12 m x 3 m**.
+
+  - **Panjang**: 100 m
+  - **Lebar**: 12 m
+  - **Tinggi**: 3 m
+
+  Maka, volume kandang adalah:
+
+  $$
+  Volume \, Kandang = 100 \, m \times 12 \, m \times 3 \, m = 3.600 \, m^3
+  $$
+
+  Karena CFM biasanya dihitung dalam feet kubik, kita konversikan volume kandang ke **cubic feet**:
+
+  $$
+  1 \, m^3 = 35.3147 \, cubic \, feet
+  $$
+
+  Maka volume kandang dalam cubic feet adalah:
+
+  $$
+  Volume = 3.600 \, m^3 \times 35.3147 = 127.132.92 \, cubic \, feet
+  $$
+
+  Jika kita menggunakan **90 ACH**, maka CFM yang diperlukan adalah:
+
+  $$
+  CFM = \frac{{127.132.92 \times 90}}{60} = 190.699.38 \, CFM
+  $$
+
+###### **2.2. Memilih Blower**
+
+Exhaust fan yang umum digunakan di kandang ayam memiliki kapasitas antara **10.000 hingga 30.000 CFM** per unit. Berdasarkan perhitungan di atas, kita membutuhkan total kapasitas blower **190.699 CFM**.
+
+Jika kita menggunakan exhaust fan berkapasitas **25.000 CFM**, maka jumlah blower yang diperlukan adalah:
+
+$$
+Jumlah \, Blower = \frac{190.699}{25.000} = 7,63
+$$
+
+Jadi, dibutuhkan **8 blower** (dibulatkan ke atas) untuk menyediakan ventilasi yang cukup di kandang.
+
+###### **2.3. Perhitungan Tekanan Statis (Static Pressure)**
+
+Tekanan statis adalah hambatan terhadap aliran udara yang disebabkan oleh filter, cooling pad, ventilasi, dll. Exhaust fan perlu mampu bekerja melawan hambatan ini.
+
+**Formula tekanan statis**:
+
+$$
+SP = \frac{{Laju \, Aliran \times Hambatan}}{{Kinerja Fan}}
+$$
+
+Di sini, penting untuk memperhatikan efisiensi fan dan hambatan yang dihasilkan oleh cooling pad atau dinding kandang.
+
+---
+
+##### **3. Perhitungan Cooling Pad**
+
+###### **3.1. Kebutuhan Aliran Udara pada Cooling Pad**
+
+Untuk memastikan sistem evaporatif cooling bekerja dengan optimal, luas permukaan cooling pad harus cukup besar untuk menangani aliran udara yang diciptakan oleh exhaust fan.
+
+- **Air Velocity (Kecepatan Udara)** melalui cooling pad biasanya antara **1,5–2 m/s**.
+- **CFM to m³/s conversion**: 1 CFM = 0,00047 m³/s
+
+Jika kita mengambil nilai tengah kecepatan udara **1,75 m/s**, maka luas permukaan cooling pad yang dibutuhkan adalah:
+
+$$
+Luas \, Cooling \, Pad = \frac{{Laju \, Aliran \, Udara}}{Kecepatan \, Udara}
+$$
+
+$$
+Luas = \frac{190.699 \times 0,00047}{1,75} = 51,2 \, m^2
+$$
+
+Ini berarti luas cooling pad yang diperlukan adalah **51,2 m²** untuk mendukung aliran udara sebesar **190.699 CFM**. Cooling pad ini bisa dipasang sepanjang sisi kandang, misalnya sepanjang 12 meter dengan tinggi sekitar 4,3 meter.
+
+###### **3.2. Sistem Sirkulasi Air pada Cooling Pad**
+
+Sistem distribusi air pada cooling pad harus konstan dan merata. Sistem ini biasanya terdiri dari pompa air yang mengalirkan air ke bagian atas cooling pad, dengan kapasitas sekitar **2–3 liter/m²** per menit.
+
+![The-cooling-pad.webp](/static/images/ayam/The-cooling-pad.webp)
+
+---
+
+##### **4. Kesimpulan**
+
+Sistem ventilasi mekanis dengan exhaust fan dan cooling pad pada kandang ayam modern didesain untuk mengatur suhu dan kelembapan secara efisien. Berdasarkan perhitungan di atas:
+
+- Anda memerlukan **8 blower** dengan kapasitas **25.000 CFM** untuk ventilasi yang memadai.
+- **Luas cooling pad** yang dibutuhkan adalah sekitar **51,2 m²** untuk mendukung aliran udara yang efisien.
+
+Dengan ventilasi yang tepat dan pengaturan cooling pad yang sesuai, kandang akan mampu menjaga kondisi optimal yang mendukung pertumbuhan ayam pedaging secara efisien.
 
 ---
 
