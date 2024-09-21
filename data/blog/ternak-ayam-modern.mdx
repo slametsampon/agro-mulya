@@ -46,6 +46,7 @@ Berinvestasi dalam pengetahuan ini adalah langkah awal menuju keberhasilan dalam
     - [**3. Perhitungan Cooling Pad**](#3-perhitungan-cooling-pad)
       - [**3.1. Kebutuhan Aliran Udara pada Cooling Pad**](#31-kebutuhan-aliran-udara-pada-cooling-pad)
       - [**3.2. Sistem Sirkulasi Air pada Cooling Pad**](#32-sistem-sirkulasi-air-pada-cooling-pad)
+      - [**3.3. Lebih Detail Sistem Sirkulasi Air pada Cooling Pad**](#33-lebih-detail-sistem-sirkulasi-air-pada-cooling-pad)
     - [**4. Kesimpulan**](#4-kesimpulan)
 - [Bab 3: IoT dan Sensor Monitoring untuk Ternak Ayam](#bab-3-iot-dan-sensor-monitoring-untuk-ternak-ayam)
   - [3.1 Penggunaan Teknologi IoT untuk Memantau Suhu, Kelembaban, dan Gas Amonia di Kandang](#31-penggunaan-teknologi-iot-untuk-memantau-suhu-kelembaban-dan-gas-amonia-di-kandang)
@@ -394,9 +395,122 @@ Sistem distribusi air pada cooling pad harus konstan dan merata. Sistem ini bias
 
 ![The-cooling-pad.webp](/static/images/ayam/The-cooling-pad.webp)
 
+###### **3.3. Lebih Detail Sistem Sirkulasi Air pada Cooling Pad**
+
+Dalam mendesain **sistem cooling pad** untuk kandang ayam modern, penting untuk mempertimbangkan aliran udara yang efisien melalui cooling pad serta hambatan yang dihasilkan oleh sistem ini. Berikut penjelasan rinci tentang langkah-langkah desain cooling pad dan cara menghitung **hambatan laju alir udara**.
+
+---
+
+- **1. Prinsip Dasar Cooling Pad**
+
+Cooling pad berfungsi dengan prinsip **evaporative cooling**, yaitu udara panas yang melewati pad akan berinteraksi dengan air yang mengalir melalui struktur pad. Proses penguapan air ini akan mendinginkan udara sebelum masuk ke dalam kandang.
+
+---
+
+- **2. Desain Cooling Pad**
+
+Beberapa langkah utama dalam mendesain cooling pad adalah:
+
+- **2.1. Menentukan Ukuran Cooling Pad**
+
+Ukuran cooling pad ditentukan berdasarkan kapasitas ventilasi dan aliran udara yang diperlukan. Cooling pad yang terlalu kecil dapat menyebabkan kecepatan udara terlalu tinggi, sehingga tidak efektif dalam menurunkan suhu. Sebaliknya, pad yang terlalu besar bisa tidak ekonomis.
+
+- **Parameter penting**:
+  - **Air Velocity (Kecepatan Udara)**: Kecepatan udara melalui cooling pad harus berada di kisaran **1,5–2,5 m/s** untuk mencapai pendinginan yang optimal.
+  - **CFM (Cubic Feet per Minute)**: Jumlah udara yang dihasilkan oleh exhaust fan, yang dihitung dari kebutuhan ventilasi kandang.
+
+**Contoh**:
+Jika kandang membutuhkan total aliran udara sebesar **190.699 CFM** (seperti yang dihitung sebelumnya), kita dapat menentukan luas cooling pad yang diperlukan menggunakan rumus berikut:
+
+$$
+Luas \, Cooling \, Pad = \frac{{CFM \times 0.00047}}{Kecepatan \, Udara}
+$$
+
+Dengan kecepatan udara **1,75 m/s**, kita hitung luasnya:
+
+$$
+Luas \, Cooling \, Pad = \frac{190.699 \times 0.00047}{1,75} = 51,2 \, m^2
+$$
+
+Artinya, Anda memerlukan cooling pad dengan luas total **51,2 m²**.
+
+- **2.2. Posisi dan Distribusi Cooling Pad**
+
+- **Posisi**: Cooling pad biasanya dipasang di sepanjang salah satu dinding kandang. Contoh, jika dinding kandang memiliki panjang 12 meter, cooling pad setinggi 4,3 meter (51,2 m² dibagi panjang 12 meter) dapat dipasang untuk mendukung kapasitas tersebut.
+- **Distribusi**: Cooling pad harus tersebar merata di sepanjang sisi kandang untuk memastikan udara dingin masuk dengan kecepatan yang seragam.
+
+---
+
+- **3. Menghitung Hambatan Laju Aliran Udara**
+
+Setiap cooling pad memiliki hambatan terhadap aliran udara yang disebut **Static Pressure (Tekanan Statis)**. Hambatan ini berasal dari resistensi mekanis saat udara melewati pad yang dipenuhi air. Hambatan ini memengaruhi efisiensi exhaust fan, sehingga penting untuk menghitung dan mempertimbangkan hambatan dalam perhitungan desain.
+
+- **3.1. Persamaan Tekanan Statis**
+
+Tekanan statis dapat dihitung menggunakan rumus:
+
+$$
+\Delta P = \frac{{K \cdot L \cdot V^2}}{2g}
+$$
+
+Di mana:
+
+- $\Delta P$ = Tekanan statis (Pa)
+- $K$ = Koefisien resistensi cooling pad (tergantung pada tipe cooling pad, biasanya antara 0,5 hingga 1,5 untuk pad dengan struktur sarang lebah)
+- $L$ = Ketebalan cooling pad (m)
+- $V$ = Kecepatan aliran udara melalui cooling pad (m/s)
+- $g$ = Gravitasi (9,81 m/s²)
+
+**Contoh Perhitungan Tekanan Statis**:
+Misalkan Anda menggunakan cooling pad dengan **K = 1**, ketebalan pad **0,15 m**, dan kecepatan udara **1,75 m/s**, maka tekanan statis adalah:
+
+$$
+\Delta P = \frac{{1 \cdot 0,15 \cdot 1,75^2}}{2 \cdot 9,81}
+$$
+
+$$
+\Delta P = \frac{{0,15 \cdot 3,0625}}{19,62} = \frac{{0,459}}{19,62} = 0,0234 \, Pa
+$$
+
+Tekanan statis ini masih kecil, tetapi bisa meningkat jika ketebalan cooling pad atau kecepatan udara bertambah.
+
+- **3.2. Menghubungkan Tekanan Statis dengan CFM dan Blower**
+
+Exhaust fan harus mampu mengatasi tekanan statis yang dihasilkan oleh cooling pad untuk memastikan laju alir udara tetap sesuai dengan kebutuhan. Saat memilih blower, pastikan untuk memeriksa **curve performance fan** yang menunjukkan bagaimana blower berfungsi pada berbagai nilai tekanan statis.
+
+Sebagai contoh:
+
+- Jika blower Anda memiliki kapasitas **25.000 CFM** pada **0,2 in-H₂O** (inch-water) tekanan statis, pastikan untuk mencocokkan kebutuhan **CFM** dan tekanan statis dari cooling pad dengan kemampuan blower.
+
+---
+
+- **4. Penggunaan Pompa Air untuk Cooling Pad**
+
+Selain sistem ventilasi, sistem cooling pad memerlukan air yang mengalir secara merata ke seluruh pad.
+
+- **Kebutuhan Air**
+
+- Umumnya, **2-3 liter/m²** air per menit dibutuhkan untuk cooling pad agar air selalu tersedia untuk proses penguapan.
+
+Dengan luas cooling pad **51,2 m²**, air yang dibutuhkan per menit adalah:
+
+$$
+Air \, yang \, Dibutuhkan = 51,2 \, m² \times 3 \, liter/m² = 153,6 \, liter/min
+$$
+
+Anda akan membutuhkan pompa yang dapat memasok air sebesar **153,6 liter/min** ke cooling pad secara konstan.
+
 ---
 
 ##### **4. Kesimpulan**
+
+Desain cooling pad yang efisien memerlukan perhitungan yang teliti untuk memastikan kecepatan aliran udara optimal dan hambatan minimal terhadap blower. Dalam contoh di atas:
+
+- Anda memerlukan luas cooling pad sekitar **51,2 m²** dengan kecepatan udara **1,75 m/s**.
+- Hambatan laju alir udara (tekanan statis) dihasilkan sekitar **0,0234 Pa** dengan kecepatan udara tersebut.
+- Sistem ventilasi dengan blower yang sesuai harus dirancang untuk mengatasi hambatan ini.
+
+Dengan desain yang baik, cooling pad dan ventilasi mekanis dapat bekerja secara efisien untuk menjaga suhu dan kelembapan optimal di kandang ayam modern.
 
 Sistem ventilasi mekanis dengan exhaust fan dan cooling pad pada kandang ayam modern didesain untuk mengatur suhu dan kelembapan secara efisien. Berdasarkan perhitungan di atas:
 
