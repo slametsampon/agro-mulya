@@ -32,6 +32,12 @@ images: []
   - [**4.4. Tata Letak dan Desain Modular**](#44-tata-letak-dan-desain-modular)
   - [**4.5. Desain Hidrolik pada Sistem Vertikal**](#45-desain-hidrolik-pada-sistem-vertikal)
   - [**4.6. Kebutuhan Pompa dan Spesifikasi**](#46-kebutuhan-pompa-dan-spesifikasi)
+    - [**Contoh Perhitungan Pompa**](#contoh-perhitungan-pompa)
+      - [Langkah 1: Menentukan Debit (Q) Total](#langkah-1-menentukan-debit-q-total)
+      - [Langkah 2: Menentukan Total Head (H_total)](#langkah-2-menentukan-total-head-h_total)
+      - [Langkah 3: Menghitung Kapasitas Pompa](#langkah-3-menghitung-kapasitas-pompa)
+      - [Langkah 4: Menambahkan Faktor Keamanan](#langkah-4-menambahkan-faktor-keamanan)
+      - [Kesimpulan:](#kesimpulan)
   - [**4.7. Perhitungan Laju Alir Nutrisi**](#47-perhitungan-laju-alir-nutrisi)
   - [**4.8. Distribusi Tekanan dan Sistem Kontrol**](#48-distribusi-tekanan-dan-sistem-kontrol)
   - [**4.9. Studi Kasus dan Contoh Desain**](#49-studi-kasus-dan-contoh-desain)
@@ -238,6 +244,93 @@ Sub-bab ini membahas perhitungan kapasitas pompa berdasarkan desain hidrolik, te
 - **Kebutuhan Flow Rate dan Head Pressure**.
 - **Pemilihan Pompa**: Spesifikasi pompa yang sesuai dengan sistem vertikal (skala kecil hingga komersial).
 - **Rekomendasi Pompa**: Tipe pompa yang direkomendasikan, seperti **pompa submersible** atau **pompa dengan tekanan tinggi**.
+
+##### **Contoh Perhitungan Pompa**
+
+Untuk menghitung kapasitas pompa yang diperlukan dalam sistem hidroponik vertikal dengan 10 menara yang masing-masing memiliki tinggi 1,5 meter, ada beberapa faktor yang perlu diperhitungkan, termasuk:
+
+1. **Jumlah menara (N):** 10 menara.
+2. **Tinggi menara (H):** 1,5 meter.
+3. **Kebutuhan aliran per menara (Q):** Bergantung pada jenis tanaman dan kebutuhan nutrisi, umumnya digunakan kisaran 1–2 liter per menit (LPM) per menara.
+4. **Losses (kehilangan tekanan):** Diperhitungkan berdasarkan panjang pipa, fitting, dan kondisi aliran. Untuk perkiraan awal, kita bisa menggunakan faktor kehilangan yang umum dalam sistem irigasi kecil.
+5. **Total head (ketinggian total):** Ini termasuk ketinggian vertikal (H) dan kehilangan tekanan (friction losses).
+
+Mari kita buat asumsi dan lakukan perhitungan:
+
+###### Langkah 1: Menentukan Debit (Q) Total
+
+Kebutuhan debit (Q) per menara biasanya berkisar antara 1–2 liter per menit (LPM). Untuk contoh ini, kita asumsikan setiap menara membutuhkan 1,5 LPM.
+
+$$
+Q_{\text{total}} = Q_{\text{menara}} \times N
+$$
+
+Di mana:
+
+- $ Q\_{\text{menara}} $ = 1,5 LPM
+- $ N $ = 10 menara
+
+$$
+Q_{\text{total}} = 1,5 \times 10 = 15 \text{ LPM}
+$$
+
+Untuk mengkonversi ke meter kubik per jam (m³/jam):
+
+$$
+Q_{\text{total}} = 15 \text{ LPM} \times \frac{60}{1000} = 0,9 \text{ m³/jam}
+$$
+
+###### Langkah 2: Menentukan Total Head (H_total)
+
+Total head terdiri dari dua komponen:
+
+1. **Static head (H_static):** Ketinggian menara, yaitu 1,5 meter.
+2. **Friction losses (H_friction):** Kehilangan tekanan akibat gesekan dalam pipa dan fitting. Ini bisa diperkirakan sekitar 10–20% dari tinggi statis untuk sistem kecil.
+
+Kita asumsikan kehilangan tekanan sekitar 20% dari ketinggian menara:
+
+$$
+H_{\text{friction}} = 0,2 \times H_{\text{static}} = 0,2 \times 1,5 = 0,3 \text{ meter}
+$$
+
+Sehingga, total head ($ H\_{\text{total}} $) adalah:
+
+$$
+H_{\text{total}} = H_{\text{static}} + H_{\text{friction}} = 1,5 + 0,3 = 1,8 \text{ meter}
+$$
+
+###### Langkah 3: Menghitung Kapasitas Pompa
+
+Untuk menghitung kapasitas pompa yang diperlukan, kita gunakan rumus:
+
+$$
+P_{\text{pompa}} = Q_{\text{total}} \times H_{\text{total}}
+$$
+
+Di mana $ P\_{\text{pompa}} $ dalam satuan Watt (W) dan 1 W = 1 joule per detik (J/s). Namun, untuk kebutuhan praktis, kita biasanya menggunakan grafik atau tabel daya pompa yang disediakan produsen untuk berbagai debit dan head.
+
+Dengan $ Q*{\text{total}} $ sebesar 0,9 m³/jam dan $ H*{\text{total}} $ sebesar 1,8 meter, pompa kecil dengan spesifikasi berikut akan memadai:
+
+- Kapasitas aliran: 1 m³/jam
+- Total head: 2 meter
+
+###### Langkah 4: Menambahkan Faktor Keamanan
+
+Dalam memilih pompa, selalu tambahkan margin keamanan sekitar 10–20%. Jadi, Anda bisa memilih pompa dengan kapasitas sedikit lebih tinggi, misalnya:
+
+- Kapasitas: 1,2 m³/jam
+- Total head: 2 meter
+
+Pompa ini akan cukup untuk mengalirkan nutrisi ke 10 menara hidroponik vertikal dengan tinggi masing-masing 1,5 meter.
+
+###### Kesimpulan:
+
+Pompa yang diperlukan untuk modul dengan 10 menara setinggi 1,5 meter adalah pompa dengan spesifikasi:
+
+- Kapasitas: 1–1,2 m³/jam
+- Total head: 2 meter
+
+Dengan perhitungan ini, Anda dapat menjaga aliran nutrisi yang cukup ke seluruh menara dengan efisiensi optimal.
 
 #### **4.7. Perhitungan Laju Alir Nutrisi**
 
